@@ -1,3 +1,57 @@
-<h2 id="title">Welcome to Ember</h2>
-
-{{outlet}}
+<div class="menu-wrapper {{if hasItems 'queued search'}}">
+  <div class="left-container">
+    {{#unless hasItems}}
+      <label class="menu-toggle-icon">
+        <input type="checkbox" />
+        <span href="#" class="icon-bar"></span>
+        <span href="#" class="icon-bar"></span>
+        <span href="#" class="icon-bar"></span>
+      </label>
+      <a class="logo" href="#"><span>Inbox</span></a>
+      {{else}}
+        <a href="#" class="logo back" {{action "emptyQueue"}}><i class="fa fa-arrow-left"></i> Back</a>
+    {{/unless}}
+  </div>
+  {{nav-sidebar}}
+  <div class="right-container">
+    <nav class="menus">
+      <ul>
+        <li><a href="#"><i class="fa fa-comment"></i></a></li>
+        <li><a href="#"><i class="fa fa-th"></i></a></li>
+        <li><a href="#"><i class="fa fa-bell"></i></a></li>
+        <li>
+          {{account-dropdown}}
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="center-container">
+    {{#unless hasItems}}
+    <div class="search-wrapper">
+      <div class="search-box">
+        <input type="text" placeholder="Search" spellcheck="false" />
+      </div>
+      <div class="chk-pin">
+        <label>
+          <input type="checkbox" /><span></span>
+        </label>
+      </div>
+    </div>
+    {{else}}
+    <div class="queue-items">
+      {{count}} Selected
+      <ul class="queue-action pull-right">
+        <li><a href="#"><i class="fa fa-trash"></i></a></li>
+        <li><a href="#"><i class="fa fa-thumb-tack"></i></a></li>
+        <li {{action 'showSnooze' target="view"}}><a href="#"><i class="fa fa-clock-o"></i></a></li>
+        <li><a href="#"><i class="fa fa-check"></i></a></li>
+        <li {{action "showSettings" target="view"}}><a href="#"><i class="fa fa-ellipsis-v"></i></a></li>
+      </ul>
+    </div>
+    {{/unless}}
+  </div>
+</div>
+<div class="body-wrapper">
+  {{fa-button showInvite = "showInvite"}} {{outlet}} 
+</div>
+{{outlet 'modal'}}

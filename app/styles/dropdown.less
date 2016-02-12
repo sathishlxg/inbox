@@ -1,0 +1,125 @@
+.dropdown {
+  z-index: 10000;
+  position: absolute;
+  top: 110%;
+  width: 280px;
+  line-height: 20px;
+  right: 16px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.16), 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease-out;
+}
+.dropdown:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  margin-top: -6px;
+  right: 12px;
+  border-width: 0 6px 6px 6px;
+  border-style: solid;
+  border-color: #fff transparent;
+}
+.dropdown:before {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 0;
+  right: 12px;
+  margin-top: -8px;
+  border-width: 0 8px 8px 8px;
+  border-style: solid;
+  border-color: #fff transparent;
+}
+.dropdown .dropdown-item {
+  position: relative;
+  padding: 10px;
+}
+.dropdown .dropdown-item img {
+  width: 96px;
+  height: 96px;
+  border-radius: 2px;
+  float: left;
+  cursor: pointer;
+}
+.dropdown .dropdown-item:not(.default) {
+  background: #f5f5f5;
+  border-top: 1px solid #ccc;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+.dropdown .dropdown-item:not(.default) img {
+  width: 48px;
+  height: 48px;
+}
+.dropdown .dropdown-item:not(last-child):hover,
+.dropdown .dropdown-item:not(.default):hover {
+  background: #eee;
+}
+.dropdown .dropdown-item.default:before {
+  content: "Change image";
+  color: white;
+  height: 20px;
+  width: 96px;
+  font-size: 10px;
+  display: inline-block;
+  text-align: center;
+  background: #4285f4;
+  opacity: .8;
+  position: absolute;
+  bottom: 12px;
+  left: 10px;
+  cursor: pointer;
+}
+.dropdown .dropdown-item:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+.dropdown .profile-content {
+  color: #000;
+  text-align: left;
+  margin: 6px 10px;
+  margin-left: 50px;
+}
+.dropdown .profile-content .email {
+  font-size: 12px;
+  line-height: 1em;
+  color: #666;
+}
+.dropdown .profile-content a {
+  color: #000;
+}
+.dropdown .profile-content ul li {
+  display: block;
+  list-style: none;
+  color: black;
+}
+.dropdown .default .profile-content {
+  margin-left: 120px;
+  line-height: 1.4;
+}
+.dropdown .default .profile-content a {
+  color: #4285f4;
+}
+.dropdown .default .profile-content .click {
+  display: inline-block;
+  margin-top: 5px;
+  background: #4285f4;
+  padding: 5px 10px;
+  color: #fff;
+  border-radius: 2px;
+}
+.default-btn {
+  color: #000 !important;
+  padding: 5px;
+  border: 1px solid #c6c6c6;
+  border-radius: 2px;
+}
+.pull-left {
+  float: left;
+}
+.pull-right {
+  float: right;
+}

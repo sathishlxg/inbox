@@ -1,0 +1,31 @@
+<div class="content-wrapper {{if isSelected 'item-selected'}}">
+    <div class="main-wrapper {{if isItemSelected 'mail-selected'}}">
+        <div class="mail-header">
+            <div class="image">
+                <img {{bind-attr src=mail.avatar}} />
+                <label class="selector">
+                    {{input type="checkbox" checked=isItemSelected}}
+                    <span><i class="fa fa-check"></i></span>
+                </label>
+            </div>
+            <div class="name"><span>{{mail.senderName}}</span></div>
+            <div class="subject">
+                <div class="actions">
+                    {{#if isPinned}}
+                        <a href="#" class="pinned-msg"><i class="fa fa-thumb-tack"></i></a> 
+                    {{/if}}
+                    <ul>
+                        <li {{action "pinItem"}}><a href="#"  class="{{if isPinned 'pinned' }}"><i class="fa fa-thumb-tack"></i></a></li>
+                        <li {{action 'showSnooze'}}><a href="#"><i class="fa fa-clock-o"></i></a></li>
+                        <li><a href="#"><i class="fa fa-check"></i></a></li>
+                        <li {{action 'showSettings'}}><a href="#"><i class="fa fa-ellipsis-v"></i></a></li>
+                    </ul>
+                </div>
+                <div class="content">
+                    <span class="fs">{{mail.subject}}</span><span> - </span><span class="sn">{{trimmedContent}}</span>
+                </div>
+            </div>
+        </div>
+        {{file-attachement attachments=mail.attachments}}
+    </div>
+</div>
