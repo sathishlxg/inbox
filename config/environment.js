@@ -2,10 +2,10 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'inbox',
+    modulePrefix: "inbox",
     environment: environment,
-    baseURL: '/',
-    locationType: 'auto',
+    rootURL: "/",
+    locationType: "auto",
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -18,18 +18,21 @@ module.exports = function(environment) {
       // when it is created
     }
   };
-  
+
   ENV.contentSecurityPolicy = {
-    'default-src' : "'none'",
-    'script-src' : "'self' http://inbox-sathishlxg.c9users.io:8081",
-    'media-src': "'self'",
-    'content-src' : "'self' http://inbox-sathishlxg.c9users.io:8081 ws://inbox-sathishlxg.c9users.io:8081",
-    'font-src': "'self' https://maxcdn.bootstrapcdn.com/",
-    'style-src' : "'self' http://inbox-sathishlxg.c9users.io:8081 https://maxcdn.bootstrapcdn.com",
-    'img-src': "'self' https://ssl.gstatic.com https://lh4.googleusercontent.com https://mail.google.com",
+    "default-src": "'none'",
+    "script-src": "'self' http://inbox-sathishlxg.c9users.io:8081",
+    "media-src": "'self'",
+    "content-src":
+      "'self' http://inbox-sathishlxg.c9users.io:8081 ws://inbox-sathishlxg.c9users.io:8081",
+    "font-src": "'self' https://maxcdn.bootstrapcdn.com/",
+    "style-src":
+      "'self' http://inbox-sathishlxg.c9users.io:8081 https://maxcdn.bootstrapcdn.com",
+    "img-src":
+      "'self' https://ssl.gstatic.com https://lh4.googleusercontent.com https://mail.google.com"
   };
 
-  if (environment === 'development') {
+  if (environment === "development") {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -37,20 +40,19 @@ module.exports = function(environment) {
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
 
-  if (environment === 'test') {
+  if (environment === "test") {
     // Testem prefers this...
-    ENV.baseURL = '/';
-    ENV.locationType = 'none';
+    ENV.rootURL = "/";
+    ENV.locationType = "none";
 
     // keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
-    ENV.APP.rootElement = '#ember-testing';
+    ENV.APP.rootElement = "#ember-testing";
   }
 
-  if (environment === 'production') {
-
+  if (environment === "production") {
   }
 
   return ENV;

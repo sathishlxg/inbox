@@ -1,0 +1,126 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/thangaraj/.nvm/versions/node/v6.10.0/bin/node',
+1 verbose cli   '/Users/thangaraj/.nvm/versions/node/v6.10.0/bin/ynpm',
+1 verbose cli   'i',
+1 verbose cli   'NodeWatcher' ]
+2 silly now 2018-05-22T22:55:30.836Z
+3 silly hostname thinksoon-lm
+4 silly platform darwin
+5 silly arch x64
+6 silly release 17.5.0
+7 silly node { http_parser: '2.7.0',
+7 silly node   node: '6.10.0',
+7 silly node   v8: '5.1.281.93',
+7 silly node   uv: '1.9.1',
+7 silly node   zlib: '1.2.8',
+7 silly node   ares: '1.10.1-DEV',
+7 silly node   icu: '58.2',
+7 silly node   modules: '48',
+7 silly node   openssl: '1.0.2k',
+7 silly node   ynpm: '3.4.7',
+7 silly node   npm: '3.10.3' }
+8 info using ynpm@3.4.7
+9 info using npm@3.10.3
+10 info using node@v6.10.0
+11 silly conf { argv:
+11 silly conf    { remain: [ 'i', 'NodeWatcher' ],
+11 silly conf      cooked: [ 'i', 'NodeWatcher' ],
+11 silly conf      original: [ 'i', 'NodeWatcher' ] } }
+12 silly argv undefined
+13 silly looking for command:  install
+14 silly found proxy command for install
+15 silly looking for command:  i
+16 silly found proxy command for install
+17 silly loadCurrentTree Starting
+18 silly install loadCurrentTree
+19 silly install readLocalPackageData
+20 silly fetchPackageMetaData NodeWatcher
+21 silly fetchNamedPackageData NodeWatcher
+22 silly mapToRegistry name NodeWatcher
+23 silly mapToRegistry using default registry
+24 silly mapToRegistry registry http://ynpm-registry.corp.yahoo.com/
+25 silly mapToRegistry data Result {
+25 silly mapToRegistry   raw: 'NodeWatcher',
+25 silly mapToRegistry   scope: null,
+25 silly mapToRegistry   escapedName: 'NodeWatcher',
+25 silly mapToRegistry   name: 'NodeWatcher',
+25 silly mapToRegistry   rawSpec: '',
+25 silly mapToRegistry   spec: 'latest',
+25 silly mapToRegistry   type: 'tag' }
+26 silly mapToRegistry uri http://ynpm-registry.corp.yahoo.com/NodeWatcher
+27 info attempt registry request try #1 at 3:55:32 PM
+28 http GET http://ynpm-registry.corp.yahoo.com/NodeWatcher
+29 http 404 http://ynpm-registry.corp.yahoo.com/NodeWatcher
+30 silly registry.get cb [ 404,
+30 silly registry.get   { 'x-frame-options': 'SAMEORIGIN',
+30 silly registry.get     'x-content-type-options': 'nosniff',
+30 silly registry.get     'x-xss-protection': '1; mode=block',
+30 silly registry.get     'x-powered-by': 'Express',
+30 silly registry.get     'whitelist-bypassed': 'yes',
+30 silly registry.get     date: 'Tue, 22 May 2018 22:55:33 GMT',
+30 silly registry.get     'windjammer-hostname': 'main.34bb94a1-59f.prod-corp-gq1-1',
+30 silly registry.get     vary: 'Accept-Encoding, ETag, bypass-whitelist, whitelist-bypass, windjammer-force-external',
+30 silly registry.get     'windjammer-internal': 'no',
+30 silly registry.get     'windjammer-external': 'no',
+30 silly registry.get     'windjammer-delegate': 'http://npm.zenfs.com/-/mirror/NodeWatcher/index.json',
+30 silly registry.get     'content-type': 'text/plain',
+30 silly registry.get     'x-mh2-env': 'paas.ynodejs.ynpm;ynpmregistryproductionv2;prod_corp_gq1_1;34bb94a1-59f8-11e8-964c-d4ae52ae36e2;main',
+30 silly registry.get     'set-cookie': [ 'B=6a7v019dg97v5&b=3&s=kh; expires=Tue, 22-May-2019 22:55:33 GMT; path=/; domain=.yahoo.com' ],
+30 silly registry.get     age: '0',
+30 silly registry.get     'transfer-encoding': 'chunked',
+30 silly registry.get     connection: 'close',
+30 silly registry.get     via: 'http/1.1 a05.ue.corp.gq1.yahoo.net (ApacheTrafficServer [c s f ])',
+30 silly registry.get     server: 'ATS' } ]
+31 silly fetchPackageMetaData Error: 404 Not Found: NodeWatcher
+31 silly fetchPackageMetaData     at RegClient.<anonymous> (/Users/thangaraj/.nvm/versions/node/v6.10.0/lib/node_modules/ynpm/node_modules/ynpm-registry-client/lib/request.js:284:14)
+31 silly fetchPackageMetaData     at RegClient.<anonymous> (/Users/thangaraj/.nvm/versions/node/v6.10.0/lib/node_modules/ynpm/node_modules/ynpm-registry-client/lib/request.js:423:7)
+31 silly fetchPackageMetaData     at Request.self.callback (/Users/thangaraj/.nvm/versions/node/v6.10.0/lib/node_modules/ynpm/node_modules/request/request.js:344:22)
+31 silly fetchPackageMetaData     at emitTwo (events.js:106:13)
+31 silly fetchPackageMetaData     at Request.emit (events.js:191:7)
+31 silly fetchPackageMetaData     at Request.<anonymous> (/Users/thangaraj/.nvm/versions/node/v6.10.0/lib/node_modules/ynpm/node_modules/request/request.js:1239:14)
+31 silly fetchPackageMetaData     at emitOne (events.js:101:20)
+31 silly fetchPackageMetaData     at Request.emit (events.js:188:7)
+31 silly fetchPackageMetaData     at IncomingMessage.<anonymous> (/Users/thangaraj/.nvm/versions/node/v6.10.0/lib/node_modules/ynpm/node_modules/request/request.js:1187:12)
+31 silly fetchPackageMetaData     at emitNone (events.js:91:20)
+31 silly fetchPackageMetaData  error for NodeWatcher { Error: 404 Not Found: NodeWatcher
+31 silly fetchPackageMetaData     at RegClient.<anonymous> (/Users/thangaraj/.nvm/versions/node/v6.10.0/lib/node_modules/ynpm/node_modules/ynpm-registry-client/lib/request.js:284:14)
+31 silly fetchPackageMetaData     at RegClient.<anonymous> (/Users/thangaraj/.nvm/versions/node/v6.10.0/lib/node_modules/ynpm/node_modules/ynpm-registry-client/lib/request.js:423:7)
+31 silly fetchPackageMetaData     at Request.self.callback (/Users/thangaraj/.nvm/versions/node/v6.10.0/lib/node_modules/ynpm/node_modules/request/request.js:344:22)
+31 silly fetchPackageMetaData     at emitTwo (events.js:106:13)
+31 silly fetchPackageMetaData     at Request.emit (events.js:191:7)
+31 silly fetchPackageMetaData     at Request.<anonymous> (/Users/thangaraj/.nvm/versions/node/v6.10.0/lib/node_modules/ynpm/node_modules/request/request.js:1239:14)
+31 silly fetchPackageMetaData     at emitOne (events.js:101:20)
+31 silly fetchPackageMetaData     at Request.emit (events.js:188:7)
+31 silly fetchPackageMetaData     at IncomingMessage.<anonymous> (/Users/thangaraj/.nvm/versions/node/v6.10.0/lib/node_modules/ynpm/node_modules/request/request.js:1187:12)
+31 silly fetchPackageMetaData     at emitNone (events.js:91:20) code: 'E404', pkgid: 'NodeWatcher' }
+32 silly rollbackFailedOptional Starting
+33 silly rollbackFailedOptional Finishing
+34 silly runTopLevelLifecycles Starting
+35 silly runTopLevelLifecycles Finishing
+36 silly install printInstalled
+37 info command completed in: 2.246 seconds
+38 info Fixing package.json /Users/thangaraj/skunks/ember/inbox/package.json
+39 verbose stack Error: 404 Not Found: NodeWatcher
+39 verbose stack     at RegClient.<anonymous> (/Users/thangaraj/.nvm/versions/node/v6.10.0/lib/node_modules/ynpm/node_modules/ynpm-registry-client/lib/request.js:284:14)
+39 verbose stack     at RegClient.<anonymous> (/Users/thangaraj/.nvm/versions/node/v6.10.0/lib/node_modules/ynpm/node_modules/ynpm-registry-client/lib/request.js:423:7)
+39 verbose stack     at Request.self.callback (/Users/thangaraj/.nvm/versions/node/v6.10.0/lib/node_modules/ynpm/node_modules/request/request.js:344:22)
+39 verbose stack     at emitTwo (events.js:106:13)
+39 verbose stack     at Request.emit (events.js:191:7)
+39 verbose stack     at Request.<anonymous> (/Users/thangaraj/.nvm/versions/node/v6.10.0/lib/node_modules/ynpm/node_modules/request/request.js:1239:14)
+39 verbose stack     at emitOne (events.js:101:20)
+39 verbose stack     at Request.emit (events.js:188:7)
+39 verbose stack     at IncomingMessage.<anonymous> (/Users/thangaraj/.nvm/versions/node/v6.10.0/lib/node_modules/ynpm/node_modules/request/request.js:1187:12)
+39 verbose stack     at emitNone (events.js:91:20)
+40 verbose pkgid NodeWatcher
+41 verbose cwd /Users/thangaraj/skunks/ember/inbox
+42 error Darwin 17.5.0
+43 error argv "/Users/thangaraj/.nvm/versions/node/v6.10.0/bin/node" "/Users/thangaraj/.nvm/versions/node/v6.10.0/bin/ynpm" "i" "NodeWatcher"
+44 error node v6.10.0
+45 error npm -v 3.10.3
+46 error ynpm -v 3.4.7
+47 error code E404
+48 error 404 'NodeWatcher' is not in the ynpm whitelist.
+48 error 404 You should submit a request to add it here:
+48 error 404
+48 error 404 http://ynpm-search.corp.yahoo.com/-/package/NodeWatcher
+49 verbose exit [ 1, true ]
