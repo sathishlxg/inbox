@@ -1,15 +1,18 @@
-import Ember from 'ember';
+import Component from "@ember/component";
 
-export default Ember.Component.extend({
+export default Component.extend({
     left: 0,
+
     width: 0,
+
     isOverflowing: false,
+
     scrollElement: null,
+
     hasPictures: function() {
-        return this.get("attachments")
-            .any(function(item) {
-                return item.ext === ".jpeg";
-            });
+        return this.get("attachments").any(function(item) {
+            return item.ext === ".jpeg" || item.ext === ".png";
+        });
     }.property("attachments.@each"),
 
     hasContent: function() {
@@ -21,7 +24,10 @@ export default Ember.Component.extend({
     }.property("left"),
 
     enableRight: function() {
-        return (this.get("width") - this.get("left")) > this.get("scrollElement")[0].scrollWidth / 3;
+        return (
+            this.get("width") - this.get("left") + 20 >
+            this.get("scrollElement")[0].scrollWidth / 3
+        );
     }.property("left", "width"),
 
     didInsertElement: function() {
@@ -30,7 +36,10 @@ export default Ember.Component.extend({
         this.set("width", this.$().outerWidth());
 
         if (this.get("scrollElement") && this.get("scrollElement").length) {
-            this.set("isOverflowing", this.get("scrollElement")[0].scrollWidth > this.get("width"));
+            this.set(
+                "isOverflowing",
+                this.get("scrollElement")[0].scrollWidth > this.get("width")
+            );
         }
     },
 
@@ -38,20 +47,36 @@ export default Ember.Component.extend({
         scrollLeft: function() {
             if (this.get("left") <= 0) return;
 
-            this.set("left", this.get("scrollElement").scrollLeft() - this.get("scrollElement")[0].scrollWidth / 3);
-            this.$(".attachments-wrapper").animate({
-                scrollLeft: this.get("left")
-            }, 600);
+            this.set(
+                "left",
+                this.get("scrollElement").scrollLeft() -
+                    this.get("scrollElement")[0].scrollWidth / 3
+            );
+
+            this.$(".attachments-wrapper").animate(
+                {
+                    scrollLeft: this.get("left")
+                },
+                300
+            );
         },
 
         scrollRight: function() {
-            if ((this.get("width") - this.get("left")) < this.get("width") / 3) return;
-            
-            this.set("left", this.get("scrollElement").scrollLeft() + this.get("scrollElement")[0].scrollWidth / 3);
-            this.$(".attachments-wrapper").animate({
-                scrollLeft: this.get("left")
-            }, 600);
+            if (this.get("width") - this.get("left") < this.get("width") / 3)
+                return;
 
+            this.set(
+                "left",
+                this.get("scrollElement").scrollLeft() +
+                    this.get("scrollElement")[0].scrollWidth / 3
+            );
+
+            this.$(".attachments-wrapper").animate(
+                {
+                    scrollLeft: this.get("left")
+                },
+                300
+            );
         }
     }
 });

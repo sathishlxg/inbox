@@ -1,13 +1,24 @@
-import Ember from 'ember';
+import Component from "@ember/component";
+import $ from "jquery";
 
-export default Ember.Component.extend({
+export default Component.extend({
     tagName: "",
+
     isPinned: false,
+
+    settings: false,
+
+    snooze: false,
+
     isItemSelected: false,
 
     trimmedContent: function() {
         return this.get("mail.content").substring(0, 75);
     }.property("mail.content"),
+
+    isMenuActive: function() {
+        return this.get("snooze") || this.get("settings");
+    }.property("snooze", "settings"),
 
     onChange: function() {
         this.sendAction("setSelected", {
@@ -22,26 +33,13 @@ export default Ember.Component.extend({
         }
     }.observes("isSelected"),
 
-    _getPosition: function() {
-        var link = Ember.$(event.target),
-            offset = link.offset();
-
-        return {
-            position: "absolute",
-            left: offset.left + link.outerWidth(),
-            top: offset.top + link.outerHeight()
-        }
-    },
-
     actions: {
         pinItem: function() {
             this.toggleProperty("isPinned");
         },
-        showSnooze: function() {
-            this.sendAction("showSnooze", this._getPosition());
-        },
-        showSettings: function() {
-            this.sendAction("showSettings", this._getPosition());
+
+        handleMenuOpen: function(name, value) {
+            this.set(name, value);
         }
     }
 });
