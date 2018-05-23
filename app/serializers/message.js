@@ -1,13 +1,13 @@
-import DS from 'ember-data';
+import DS from "ember-data";
 
 export default DS.RESTSerializer.extend(DS.EmbeddedRecordsMixin, {
-    attrs:{
-        attachments: { embedded: 'always' }
+    attrs: {
+        attachments: { embedded: "always" }
     },
-     normalizePayload: function(payload){
-         debugger;
-        return{
+
+    normalizePayload: function(payload) {
+        return {
             message: payload
-        }
+        };
     }
 });

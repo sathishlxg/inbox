@@ -11,22 +11,22 @@ export default Component.extend({
     },
 
     _onClickOutside: function(evt) {
-        if (this.$() && isEmpty(this.$().has(Ember.$(evt.target)))) {
+        if (this.$() && isEmpty(this.$().has($(evt.target)))) {
             this.set("isOpen", false);
+
+            if (this.get("onOpen")) {
+                this.get("onOpen")("snooze", false);
+            }
         }
     },
 
     actions: {
         openMenu: function() {
             this.toggleProperty("isOpen");
-        },
 
-        addAccount: function() {
-            alert("add account");
-        },
-
-        signOut: function() {
-            alert("signOut");
+            if (this.get("onOpen")) {
+                this.get("onOpen")("snooze", this.get("isOpen"));
+            }
         }
     }
 });
