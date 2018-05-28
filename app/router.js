@@ -7,10 +7,15 @@ const Router = EmberRouter.extend({
 
 Router.map(function() {
     this.route("index", {
-        path: "/"
+        path: "/inbox"
     });
-    this.route("snooze");
+    this.route("snoozed");
     this.route("done");
+    this.route("draft");
+    this.route("sent");
+    this.route("reminders");
+    this.route("trash");
+    this.route("spam");
 });
 
 export default Router;

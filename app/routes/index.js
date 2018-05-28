@@ -2,7 +2,6 @@ import Route from "@ember/routing/route";
 
 export default Route.extend({
     model() {
-        // return this.store.findAll("message");
         return [
             {
                 id: 1,
@@ -150,4 +149,8 @@ export default Route.extend({
             }
         ];
     }
+
+    // redirect(model, transition) {
+    //     this.transitionTo("inbox", model);
+    // }
 });

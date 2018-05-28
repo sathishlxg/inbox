@@ -6,7 +6,9 @@ export default Controller.extend({
     isSidebarOpen: true,
 
     currentRoutePath: function() {
-        return this.get("currentPath");
+        const path = this.get("currentPath");
+
+        return path === "index" ? "inbox" : path;
     }.property("currentPath"),
 
     count: function() {

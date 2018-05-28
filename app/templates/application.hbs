@@ -8,7 +8,7 @@
             <span href="#" class="icon-bar"></span>
         </label>
         <a class="logo" href="#">
-            <span>Inbox</span>
+            <span>{{route-name currentRoutePath}}</span>
         </a>
         {{else}}
         <a href="#" class="logo back" {{action "emptyQueue"}}>
