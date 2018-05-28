@@ -1,0 +1,12 @@
+{
+    "name": "inbox",
+    "description": "A clone of Google's Inbox mail client buit with EmberJs",
+    "repository": "https://github.com/sathishlxg/inbox",
+    "keywords": ["ember.js", "static"],
+    "buildpacks": [
+        {
+            "url":
+                "https://codon-buildpacks.s3.amazonaws.com/buildpacks/heroku/emberjs.tgz"
+        }
+    ]
+}
