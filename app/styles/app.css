@@ -53,22 +53,13 @@ body {
 .menu-wrapper.done {
     background: #0f9d58;
 }
-.menu-wrapper.done .menu-toggle-icon:active {
-    background: #13cc72;
-}
 
 .menu-wrapper.snoozed {
     background: #eca403;
 }
-.menu-wrapper.snoozed .menu-toggle-icon:active {
-    background: #fcba26;
-}
 
 .menu-wrapper.other {
     background: #898984;
-}
-.menu-wrapper.other .menu-toggle-icon:active {
-    background: #a2a29e;
 }
 
 .menu-wrapper.search {
@@ -148,7 +139,7 @@ body {
     display: none;
 }
 .left-container .menu-toggle-icon:active {
-    background: #72a4f7;
+    background: rgba(0, 0, 0, 0.05);
 }
 .left-container .menu-toggle-icon .icon-bar {
     display: block;
