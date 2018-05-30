@@ -1,20 +1,31 @@
-import Ember from 'ember';
+import Controller from "@ember/controller";
 
-export default Ember.Controller.extend({
+export default Controller.extend({
     queuedItems: [],
 
-    count: function(){
+    isSidebarOpen: true,
+
+    currentRoutePath: function() {
+        const path = this.get("currentPath");
+
+        return path === "index" ? "inbox" : path;
+    }.property("currentPath"),
+
+    count: function() {
         return this.get("queuedItems").length;
     }.property("queuedItems.[]"),
-    
-    hasItems: function(){
+
+    hasItems: function() {
         return this.get("queuedItems").length > 0;
     }.property("queuedItems.[]"),
-    
-    actions:{
-        emptyQueue: function(){
+
+    actions: {
+        emptyQueue: function() {
             this.get("queuedItems").clear();
         },
+
+        toggleSideBar: function() {
+            this.toggleProperty("isSidebarOpen");
+        }
     }
-    
 });

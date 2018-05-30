@@ -1,7 +1,7 @@
-import Ember from 'ember';
-import config from './config/environment';
+import EmberRouter from "@ember/routing/router";
+import config from "./config/environment";
 
-const Router = Ember.Router.extend({
+const Router = EmberRouter.extend({
     location: config.locationType
 });
 
@@ -9,6 +9,13 @@ Router.map(function() {
     this.route("index", {
         path: "/"
     });
+    this.route("snoozed");
+    this.route("done");
+    this.route("draft");
+    this.route("sent");
+    this.route("reminders");
+    this.route("trash");
+    this.route("spam");
 });
 
 export default Router;

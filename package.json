@@ -1,43 +1,43 @@
 {
-  "name": "inbox",
-  "version": "0.0.0",
-  "description": "Small description for inbox goes here",
-  "private": true,
-  "directories": {
-    "doc": "doc",
-    "test": "tests"
-  },
-  "scripts": {
-    "build": "ember build",
-    "start": "ember server",
-    "test": "ember test"
-  },
-  "repository": "",
-  "engines": {
-    "node": ">= 0.10.0"
-  },
-  "author": "",
-  "license": "MIT",
-  "devDependencies": {
-    "broccoli-asset-rev": "^2.2.0",
-    "ember-cli": "1.13.15",
-    "ember-cli-app-version": "^1.0.0",
-    "ember-cli-babel": "^5.1.5",
-    "ember-cli-content-security-policy": "0.4.0",
-    "ember-cli-dependency-checker": "^1.1.0",
-    "ember-cli-htmlbars": "^1.0.1",
-    "ember-cli-htmlbars-inline-precompile": "^0.3.1",
-    "ember-cli-ic-ajax": "0.2.4",
-    "ember-cli-inject-live-reload": "^1.3.1",
-    "ember-cli-qunit": "^1.0.4",
-    "ember-cli-release": "0.2.8",
-    "ember-cli-sri": "^1.2.0",
-    "ember-cli-uglify": "^1.2.0",
-    "ember-data": "1.13.15",
-    "ember-disable-proxy-controllers": "^1.0.1",
-    "ember-export-application-global": "^1.0.4",
-    "express": "^4.13.4",
-    "glob": "^4.5.3",
-    "morgan": "^1.6.1"
-  }
+    "name": "inbox",
+    "version": "0.0.1",
+    "description": "A clone of Google's Inbox mail client with emberjs",
+    "private": true,
+    "directories": {
+        "doc": "doc",
+        "test": "tests"
+    },
+    "scripts": {
+        "build": "ember build",
+        "lint:js": "eslint ./*.js app blueprints config lib server tests",
+        "start": "ember serve"
+    },
+    "repository": "",
+    "author": "",
+    "license": "MIT",
+    "devDependencies": {
+        "broccoli-asset-rev": "^2.4.5",
+        "ember-cli": "~3.1.4",
+        "ember-cli-app-version": "^3.0.0",
+        "ember-cli-babel": "^6.6.0",
+        "ember-cli-dependency-checker": "^2.0.0",
+        "ember-cli-eslint": "^4.2.1",
+        "ember-cli-htmlbars": "^2.0.1",
+        "ember-cli-htmlbars-inline-precompile": "^1.0.0",
+        "ember-cli-inject-live-reload": "^1.4.1",
+        "ember-cli-shims": "^1.2.0",
+        "ember-cli-sri": "^2.1.0",
+        "ember-cli-uglify": "^2.0.0",
+        "ember-data": "~3.1.0",
+        "ember-export-application-global": "^2.0.0",
+        "ember-load-initializers": "^1.0.0",
+        "ember-maybe-import-regenerator": "^0.1.6",
+        "ember-resolver": "^4.0.0",
+        "ember-source": "~3.1.0",
+        "eslint-plugin-ember": "^5.0.0",
+        "loader.js": "^4.2.3"
+    },
+    "engines": {
+        "node": "6.10.0"
+    }
 }

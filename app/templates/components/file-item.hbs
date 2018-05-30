@@ -3,23 +3,23 @@
     <div class="document">
         <p class="doc-name">{{file.fileName}}</p>
         <div class="doc-type">
-            <i class="fa fa-file-word-o color-blue"></i>
+            {{file-extension file.ext}}
             <span>{{file.fileType}}</span>
         </div>
     </div>
-    {{else if isImage}} 
-        <div class="picture">
-            <img class="pics" {{bind-attr src= file.clipSrc alt= file.fileName}}/>
-        </div>
+    {{else if isImage}}
+    <div class="picture">
+        <img class="pics" src={{file.clipSrc}} alt={{file.fileName}}/>
+    </div>
     {{else if isVideo}}
     <div class="video">
         <div class="video-clip">
             <i class="fa fa-play-circle-o"></i>
-            <img {{bind-attr src= file.clipSrc }}/>
+            <img src={{file.clipSrc}}/>
         </div>
         <div class="video-info">
             <p class="video-name">{{file.fileName}}</p>
-            <span>4:56 - Youtube</span>
+            <span>{{file.description}}</span>
         </div>
     </div>
     {{/if}}

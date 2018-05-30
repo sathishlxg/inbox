@@ -1,32 +1,31 @@
-
-.attachments{
+.attachments {
     margin-left: 245px;
     margin-bottom: 5px;
 }
 
-.attachments .picture{
+.attachments .picture {
     width: 132px !important;
     height: 88px !important;
     padding: 0 !important;
 }
 
-.attachments .video{
-  width: 380px !important;
-  height: 88px !important;
-  padding: 0 !important;
+.attachments .video {
+    width: 380px !important;
+    height: 88px !important;
+    padding: 0 !important;
 }
 
-.attachments .video-clip{
-  position: relative;
-  float: left;
-  width: 132px;
-  height: 88px;
+.attachments .video-clip {
+    position: relative;
+    float: left;
+    width: 132px;
+    height: 88px;
 }
 
-.attachments .video-clip > i{
+.attachments .video-clip > i {
     position: absolute;
     font-size: 40px !important;
-    opacity: .5;
+    opacity: 0.5;
     color: #424242;
     width: 40px;
     height: 40px;
@@ -36,7 +35,7 @@
     margin-top: -20px !important;
 }
 
-.attachments .video-clip > img{
+.attachments .video-clip > img {
     max-width: 100%;
     max-height: 100%;
 }
@@ -46,71 +45,71 @@
     font-weight: 400;
 }
 
-.attachments .video-info span{
-  color: #757575;
-  display: inline-block;
-  margin-top: 5px;
+.attachments .video-info span {
+    color: #757575;
+    display: inline-block;
+    margin-top: 5px;
 }
 
 .attachments .item {
-  position: relative;
-  display: inline-block;
-  overflow: hidden;
-  margin-right: 10px;
-  padding: 5px;
-  background: rgba(0,0,0,.03);
-  margin-bottom: 5px;
-  border-radius: 2px;
-  color: #424242;
-  box-shadow: 0 0 1px rgba(0,0,0,.11),0 1px 2px rgba(0,0,0,.22);
-  font-weight: 500;
-  width: 132px;
-  height: 28px;
-  transition: all .2s;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    margin-right: 10px;
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.03);
+    margin-bottom: 5px;
+    border-radius: 2px;
+    color: #424242;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.11), 0 1px 2px rgba(0, 0, 0, 0.22);
+    font-weight: 500;
+    width: 132px;
+    height: 28px;
+    transition: all 0.2s;
 }
 
-.attachments.has-pictures .item{
-  height: 88px !important;
+.attachments.has-pictures .item {
+    height: 88px !important;
 }
 
-.attachments .doc-name{
+.attachments .doc-name {
     font-weight: 400;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     padding-left: 25px;
 }
-.attachments.has-pictures .doc-name{
+.attachments.has-pictures .doc-name {
     padding: 5px !important;
     height: 39px;
 }
 
-.attachments .doc-type{
+.attachments .doc-type {
     position: absolute;
     top: 6px;
 }
 
-.attachments.has-pictures .doc-type{
-  line-height: 34px;
-  position: relative;
+.attachments.has-pictures .doc-type {
+    line-height: 34px;
+    position: relative;
 }
 
-.attachments.has-pictures .doc-type span{
-  font-size: 11px;
-  color: #757575;
-  display: inline-block;
+.attachments.has-pictures .doc-type span {
+    font-size: 11px;
+    color: #757575;
+    display: inline-block;
 }
 
-.attachments .doc-type span{
-  display: none;
+.attachments .doc-type span {
+    display: none;
 }
 
-.attachments .item:hover{
-  box-shadow: 0 0 3px rgba(0,0,0,.13),0 3px 6px rgba(0,0,0,.26);
+.attachments .item:hover {
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.13), 0 3px 6px rgba(0, 0, 0, 0.26);
 }
 
-.attachments .item i{
-  display: inline-block;
-  font-size: 16px;
-  margin: 0 5px;
+.attachments .item i {
+    display: inline-block;
+    font-size: 16px;
+    margin: 0 5px;
 }

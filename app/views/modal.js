@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import Ember from "ember";
 
 export default Ember.View.extend({
     didInsertElement: function(argument) {
@@ -12,7 +12,10 @@ export default Ember.View.extend({
         });
 
         Ember.run.next(this, function() {
-            Ember.$(document).on('click.modal', Ember.run.bind(this, this._onClickOutside));
+            Ember.$(document).on(
+                "click.modal",
+                Ember.run.bind(this, this._onClickOutside)
+            );
         });
     },
     _onClickOutside: function(evt) {
@@ -21,6 +24,6 @@ export default Ember.View.extend({
         }
     },
     willDestroyElement: function(argument) {
-        Ember.$(document).off('click.modal');
+        Ember.$(document).off("click.modal");
     }
 });

@@ -1,4 +1,3 @@
-import Modal from 'inbox/views/modal';
+import Modal from "inbox/views/modal";
 
-export default Modal.extend({
-});
+export default Modal.extend({});
