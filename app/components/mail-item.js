@@ -1,14 +1,9 @@
 import Component from "@ember/component";
-import $ from "jquery";
 
 export default Component.extend({
-    tagName: "",
+    isSettingsOpen: false,
 
-    isPinned: false,
-
-    settings: false,
-
-    snooze: false,
+    isSnoozeOpen: false,
 
     isItemSelected: false,
 
@@ -17,8 +12,8 @@ export default Component.extend({
     }.property("mail.content"),
 
     isMenuActive: function() {
-        return this.get("snooze") || this.get("settings");
-    }.property("snooze", "settings"),
+        return this.get("isSnoozeOpen") || this.get("isSettingsOpen");
+    }.property("isSnoozeOpen", "isSettingsOpen"),
 
     onChange: function() {
         this.sendAction("setSelected", {
@@ -33,9 +28,16 @@ export default Component.extend({
         }
     }.observes("isSelected"),
 
+    showPin: function() {
+        return !this.get("isSelected") && this.get("mail.isPinned") && !this.get("isMenuActive");
+    }.property("mail.isPinned", "isMenuActive", "isSelected"),
+
     actions: {
         pinItem: function() {
-            this.toggleProperty("isPinned");
+            this.sendAction("onUpdate", {
+                id: this.get("mail.id"),
+                value: !this.get("mail.isPinned")
+            });
         },
 
         handleMenuOpen: function(name, value) {

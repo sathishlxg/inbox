@@ -1,0 +1,177 @@
+.msg-compose {
+    position: absolute;
+    height: 500px;
+    width: 480px;
+    bottom: 0;
+    right: 0;
+    background: white;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
+  }
+
+  .msg-compose.minimized {
+    height: 40px;
+  }
+
+  .msg-compose .msg-content-wrapper {
+    height: 100%;
+  }
+
+  .msg-compose.minimized .msg-content-wrapper {
+    display: none;
+  }
+
+  .msg-compose input,
+  .msg-compose textarea {
+    border: none;
+    outline: none;
+    width: 100%;
+    resize: none;
+    padding: 10px;
+  }
+  .msg-compose .msg-compose-wrapper {
+    height: 100%;
+    width: 100%;
+    position: relative;
+  }
+  .msg-compose .msg-compose-wrapper .msg-title-bar {
+    height: 40px;
+    background: #555;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: white;
+  }
+  .msg-compose .msg-compose-wrapper .msg-title-bar a {
+    text-decoration: none;
+    color: white;
+  }
+  .msg-compose .msg-compose-wrapper .msg-title-bar div {
+    display: inline-block;
+    line-height: 40px;
+    margin: 0 10px;
+  }
+  .msg-compose .msg-compose-wrapper .msg-title-bar div i {
+    margin: 0 5px;
+  }
+  .msg-compose .msg-compose-wrapper .msg-recipients {
+    background: white;
+    border-bottom: 1px solid #c6c6c6;
+  }
+  .msg-compose .msg-compose-wrapper .msg-recipients .cc-list,
+  .msg-compose .msg-compose-wrapper .msg-recipients .bcc-list {
+    display: none;
+  }
+  .msg-compose .msg-compose-wrapper .msg-recipients .to-list {
+    padding-right: 30px;
+    position: relative;
+  }
+  .msg-compose .msg-compose-wrapper .msg-recipients .to-list span.arrow {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    color: #999;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 0 0 0 3px;
+    display: inline-block;
+    text-align: center;
+    line-height: 20px;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+  }
+  .msg-compose .msg-compose-wrapper .msg-recipients .to-list span.arrow:hover {
+    border-radius: 2px;
+    border: 1px solid #ccc;
+  }
+  .msg-compose .msg-compose-wrapper .msg-subject {
+    background: white;
+    min-height: 30px;
+  }
+  .msg-compose .msg-compose-wrapper .msg-subject input {
+    height: 30px;
+    font-weight: 800;
+  }
+  .msg-compose .msg-compose-wrapper .msg-body textarea {
+    font-family: inherit;
+    display: block;
+    height: 100%;
+  }
+  .msg-compose .msg-compose-wrapper .msg-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    border-top: 1px solid #c6c6c6;
+    font-size: 16px;
+  }
+  .msg-compose .msg-compose-wrapper .msg-footer a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    margin: 0 10px;
+  }
+  .msg-compose .msg-compose-wrapper .msg-footer a.send-btn {
+    background: #4285f4;
+    -webkit-transform: translate3d(0, 0, 0);
+    position: relative;
+    text-decoration: none;
+    padding: 8px;
+    text-align: center;
+    width: 50px;
+    font-size: 13px;
+    border-radius: 2px;
+    color: white;
+    font-weight: normal;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.24);
+  }
+  .msg-compose .msg-compose-wrapper .msg-footer a.send-btn:hover {
+    background: #2a75f3;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.14), 0 6px 8px rgba(0, 0, 0, 0.24);
+  }
+  .msg-compose .msg-compose-wrapper .msg-footer div {
+    margin: 0 15px;
+  }
+
+  .msg-wrapper {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-right: 87px;
+    position: fixed;
+    direction: rtl;
+    z-index: 999;
+    transform: translateZ(0);
+  }
+
+  .msg-compose-container {
+    border-spacing: 15px 0;
+    display: table;
+    width: 100%;
+  }
+
+  .row {
+    display: table-row;
+  }
+
+  .empty-cell {
+    display: table-cell;
+  }
+  .empty-cell:after {
+    content: "";
+    font-size: 0;
+  }
+
+  .cell {
+    width: 480px;
+    display: table-cell;
+    margin-right: 15px;
+    direction: ltr;
+  }
+
+  .wrap {
+    position: relative;
+  }

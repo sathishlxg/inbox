@@ -15,7 +15,7 @@ export default Component.extend({
             this.set("isOpen", false);
 
             if (this.get("onOpen")) {
-                this.get("onOpen")("settings", false);
+                this.get("onOpen")("isSettingsOpen", false);
             }
         }
     },
@@ -25,7 +25,7 @@ export default Component.extend({
             this.toggleProperty("isOpen");
 
             if (this.get("onOpen")) {
-                this.get("onOpen")("settings", this.get("isOpen"));
+                this.get("onOpen")("isSettingsOpen", this.get("isOpen"));
             }
         }
     }

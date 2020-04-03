@@ -18,11 +18,13 @@ module.exports = function(app) {
 
     // Log proxy requests
     var morgan = require("morgan");
+
     app.use(morgan("dev"));
 
     mocks.forEach(function(route) {
         route(app);
     });
+
     proxies.forEach(function(route) {
         route(app);
     });

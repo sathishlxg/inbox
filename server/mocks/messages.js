@@ -1,9 +1,9 @@
 /*jshint node:true*/
 module.exports = function(app) {
     var express = require("express");
-    var messageRouter = express.Router();
+    var messagesRouter = express.Router();
 
-    messageRouter.get("/", function(req, res) {
+    messagesRouter.get("/", function(req, res) {
         res.send({
             message: [
                 {
@@ -16,26 +16,31 @@ module.exports = function(app) {
                         "The only thing I can think to do is trigger an event when the window resizes and dynamically set a new fixed width on text-div, but this just feels inelegant, especially considering padding and other neighboring artifacts I'd have to subtract out to get a proper width.",
                     hasAttachements: true,
                     hasPictures: true,
+                    isPinned: false,
                     attachments: [
                         {
+                            id: "1.1",
                             fileName: "Design document v1.0",
                             fileType: "document",
                             ext: ".docx",
                             url: "https://google.com"
                         },
                         {
+                            id: "1.2",
                             fileName: "Phone Bill",
                             fileType: "document",
                             ext: ".xlsx",
                             url: "https://google.com"
                         },
                         {
+                            id: "1.3",
                             fileName: "EL245675326US",
                             fileType: "document",
                             ext: ".pdf",
                             url: "https://google.com"
                         },
                         {
+                            id: "1.4",
                             fileName: "Sathish",
                             fileType: "image",
                             ext: ".jpeg",
@@ -44,6 +49,7 @@ module.exports = function(app) {
                                 "https://lh3.googleusercontent.com/-gR6Xo5_uP8s/AAAAAAAAAAI/AAAAAAAAAAA/5CTZklN08qY/s132-c/photo.jpg"
                         },
                         {
+                            id: "1.5",
                             fileName: "Salim | Maskara | Tamil Movie Song",
                             fileType: "video",
                             ext: ".mpeg",
@@ -63,6 +69,7 @@ module.exports = function(app) {
                     content:
                         "Watch the peppy love song Mascara Pottu sung by Vijay Antony & Supriya Joshi from the action cum romantic flick Salim.",
                     hasVideos: true,
+                    isPinned: false,
                     attachments: []
                 },
                 {
@@ -73,8 +80,10 @@ module.exports = function(app) {
                     subject: "New sign-in from Chrome on Windows",
                     content:
                         "Hi Sathish kumar, Your Google Account sathishlxg@gmail.com was",
+                    isPinned: false,
                     attachments: [
                         {
+                            id: "3.1",
                             fileName: "Sathish",
                             fileType: "image",
                             ext: ".jpeg",
@@ -93,56 +102,66 @@ module.exports = function(app) {
                     content:
                         "Once in your life time you will truly come across someone",
                     hasAttachements: true,
+                    isPinned: false,
                     attachments: [
                         {
+                            id: "4.1",
                             fileName: "Design document v1.0",
                             fileType: "document",
                             ext: ".docx",
                             url: "https://google.com"
                         },
                         {
+                            id: "4.2",
                             fileName: "Phone Bill",
                             fileType: "document",
                             ext: ".xlsx",
                             url: "https://google.com"
                         },
                         {
+                            id: "4.3",
                             fileName: "EL245675326US",
                             fileType: "document",
                             ext: ".pdf",
                             url: "https://google.com"
                         },
                         {
+                            id: "4.4",
                             fileName: "Design document v1.0",
                             fileType: "document",
                             ext: ".docx",
                             url: "https://google.com"
                         },
                         {
+                            id: "4.5",
                             fileName: "Phone Bill",
                             fileType: "document",
                             ext: ".xlsx",
                             url: "https://google.com"
                         },
                         {
+                            id: "4.6",
                             fileName: "EL245675326US",
                             fileType: "document",
                             ext: ".pdf",
                             url: "https://google.com"
                         },
                         {
+                            id: "4.7",
                             fileName: "Design document v1.0",
                             fileType: "document",
                             ext: ".docx",
                             url: "https://google.com"
                         },
                         {
+                            id: "4.8",
                             fileName: "Phone Bill",
                             fileType: "document",
                             ext: ".xlsx",
                             url: "https://google.com"
                         },
                         {
+                            id: "4.9",
                             fileName: "EL245675326US",
                             fileType: "document",
                             ext: ".pdf",
@@ -154,11 +173,11 @@ module.exports = function(app) {
         });
     });
 
-    messageRouter.post("/", function(req, res) {
+    messagesRouter.post("/", function(req, res) {
         res.status(201).end();
     });
 
-    messageRouter.get("/:id", function(req, res) {
+    messagesRouter.get("/:id", function(req, res) {
         res.send({
             message: {
                 id: req.params.id
@@ -166,7 +185,7 @@ module.exports = function(app) {
         });
     });
 
-    messageRouter.put("/:id", function(req, res) {
+    messagesRouter.put("/:id", function(req, res) {
         res.send({
             message: {
                 id: req.params.id
@@ -174,7 +193,7 @@ module.exports = function(app) {
         });
     });
 
-    messageRouter.delete("/:id", function(req, res) {
+    messagesRouter.delete("/:id", function(req, res) {
         res.status(204).end();
     });
 
@@ -188,5 +207,5 @@ module.exports = function(app) {
     // this mock uncommenting the following line:
     //
     //app.use('/api/message', require('body-parser'));
-    app.use("/api/message", messageRouter);
+    app.use("/messages", messagesRouter);
 };

@@ -1,51 +1,51 @@
 <nav class="sidebar {{if isSidebarOpen 'show' 'hide'}}">
     <ul>
-        <li class="selected-menu">
+        <li class="{{nav-item-class 'inbox' currentPath}}">
             {{#link-to "index" class="inbox"}}
-            <i class="fa fa-inbox fa-lg color-blue"></i>
-            <span>Inbox</span>
+                <i class="fa fa-inbox fa-lg color-blue"></i>
+                <span>Inbox</span>
             {{/link-to}}
         </li>
-        <li>
+        <li class="{{nav-item-class 'snoozed' currentPath}}">
             {{#link-to "snoozed" class="snooze"}}
-            <i class="fa fa-clock-o fa-lg color-orange"></i>
-            <span>Snoozed</span>
+                <i class="fa fa-clock-o fa-lg color-orange"></i>
+                <span>Snoozed</span>
             {{/link-to}}
         </li>
-        <li class="separator">
+        <li class="{{nav-item-class 'done' currentPath}} separator">
             {{#link-to "done" class="done"}}
-            <i class="fa fa-check fa-lg color-green"></i>
-            <span>Done</span>
+                <i class="fa fa-check fa-lg color-green"></i>
+                <span>Done</span>
             {{/link-to}}
         </li>
-        <li>
+        <li class="{{nav-item-class 'draft' currentPath}}">
             {{#link-to "draft" class="draft"}}
-            <i class="fa fa-envelope-o fa-lg color-grey"></i>
-            <span>Draft</span>
+                <i class="fa fa-envelope-o fa-lg color-grey"></i>
+                <span>Draft</span>
             {{/link-to}}
         </li>
-        <li>
+        <li class="{{nav-item-class 'sent' currentPath}}">
             {{#link-to "sent" class="sent"}}
-            <i class="fa fa-send-o fa-lg color-grey"></i>
-            <span>Sent</span>
+                <i class="fa fa-send-o fa-lg color-grey"></i>
+                <span>Sent</span>
             {{/link-to}}
         </li>
-        <li>
+        <li class="{{nav-item-class 'reminder' currentPath}}">
             {{#link-to "reminders" class="reminder"}}
-            <i class="fa fa-hand-o-up fa-lg color-grey"></i>
-            <span>Reminders</span>
+                <i class="fa fa-hand-o-up fa-lg color-grey"></i>
+                <span>Reminders</span>
             {{/link-to}}
         </li>
-        <li>
-            {{#link-to "trash" class="done"}}
-            <i class="fa fa-trash fa-lg color-grey"></i>
-            <span>Trash</span>
+        <li class="{{nav-item-class 'trash' currentPath}}">
+            {{#link-to "trash" class="trash"}}
+                <i class="fa fa-trash fa-lg color-grey"></i>
+                <span>Trash</span>
             {{/link-to}}
         </li>
-        <li class="separator">
+        <li class="{{nav-item-class 'spam' currentPath}} separator">
             {{#link-to "spam" class="spam"}}
-            <i class="fa fa-warning fa-lg color-grey"></i>
-            <span>Spam</span>
+                <i class="fa fa-warning fa-lg color-grey"></i>
+                <span>Spam</span>
             {{/link-to}}
         </li>
         <li class="separator sidebar-action">

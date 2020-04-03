@@ -24,14 +24,14 @@
         {{file-attachement attachments=mail.attachments}}
     </div>
     <div class="actions {{if isMenuActive 'menu-active'}}">
-        {{#if isPinned}}
-        <a href="#" class="pinned-msg">
-            <i class="fa fa-thumb-tack"></i>
-        </a>
+        {{#if showPin}}
+            <a href="#" class="pinned-msg">
+                <i class="fa fa-thumb-tack"></i>
+            </a>
         {{/if}}
         <ul class="actions-icon-list">
             <li class="action-icon" {{action "pinItem"}}>
-                <a href="#" class="{{if isPinned 'pinned' }}">
+                <a href="#" class="{{if mail.isPinned 'pinned' }}">
                     <i class="fa fa-thumb-tack"></i>
                 </a>
             </li>

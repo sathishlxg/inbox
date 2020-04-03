@@ -15,7 +15,7 @@ export default Component.extend({
             this.set("isOpen", false);
 
             if (this.get("onOpen")) {
-                this.get("onOpen")("snooze", false);
+                this.get("onOpen")("isSnoozeOpen", false);
             }
         }
     },
@@ -25,7 +25,7 @@ export default Component.extend({
             this.toggleProperty("isOpen");
 
             if (this.get("onOpen")) {
-                this.get("onOpen")("snooze", this.get("isOpen"));
+                this.get("onOpen")("isSnoozeOpen", this.get("isOpen"));
             }
         }
     }

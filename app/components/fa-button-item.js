@@ -1,5 +1,9 @@
 import Component from "@ember/component";
 
 export default Component.extend({
-    tagName: ""
+    actions: {
+        onCreateCompose: function(email) {
+            this.sendAction("onCreateCompose", email);
+        }
+    }
 });

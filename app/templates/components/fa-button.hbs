@@ -1,33 +1,29 @@
 <div class="floating-btn">
     <div class="btn-wrapper">
-        <button class="action-btn"></button>
+        <button class="action-btn" {{action "onCreateCompose"}}></button>
         <span class="action-popover">Compose</span>
     </div>
     <ul class="floating-menus">
-        <li>
-            <button>
-                <img src="https://lh4.googleusercontent.com/-GXmmnYTuWkg/AAAAAAAAAAI/AAAAAAAAAAA/oK6DEDS7grM/w56-h56/photo.jpg" />
-                <span class="action-popover">Sathish Kumar</span>
-            </button>
-        </li>
-        <li>
-            <button>
-                <img src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/avatars/avatar_tile_m_56.png" />
-                <span class="action-popover">Max</span>
-            </button>
-        </li>
-        <li>
-            <button>
-                <img src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/avatars/avatar_tile_i_56.png" />
-                <span class="action-popover">India</span>
-            </button>
-        </li>
-        <li>
-            <button>
-                <img src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/avatars/avatar_tile_a_56.png" />
-                <span class="action-popover">Alice</span>
-            </button>
-        </li>
+        {{fa-button-item
+            name = "Sathish Kumar"
+            onCreateCompose=(action "onCreateCompose" "sathislxg@gmail.com")
+            img = "https://lh4.googleusercontent.com/-GXmmnYTuWkg/AAAAAAAAAAI/AAAAAAAAAAA/oK6DEDS7grM/w56-h56/photo.jpg"
+        }}
+        {{fa-button-item
+            name = "Max"
+            onCreateCompose=(action "onCreateCompose" "max@gmail.com")
+            img = "https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/avatars/avatar_tile_m_56.png"
+        }}
+        {{fa-button-item
+            name = "India"
+            onCreateCompose=(action "onCreateCompose" "india@gmail.com")
+            img = "https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/avatars/avatar_tile_i_56.png"
+        }}
+        {{fa-button-item
+            name = "Doe"
+            onCreateCompose=(action "onCreateCompose" "doe@gmail.com")
+            img = "https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/avatars/avatar_tile_d_56.png"
+        }}
         <li>
             <button class="invite-action" {{action "showInvite"}}>
                 <img src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/1x/ic_invite_wht_24dp_r1.png" />

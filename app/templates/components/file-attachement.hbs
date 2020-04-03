@@ -1,16 +1,21 @@
 {{#if hasContent}}
-<div class="attachments {{if hasPictures 'has-pictures'}}">
-    <div class="attachments-wrapper">
-        {{#each attachments as |file|}} {{file-item file=file}} {{/each}}
+    <div class="attachments {{if hasPictures 'has-pictures'}}">
+        <div class="attachments-wrapper">
+            {{#each attachments as |file|}}
+                {{file-item file=file}}
+            {{/each}}
+        </div>
+        {{#if isOverflowing}}
+            {{#if enableLeft}}
+                <div class="prev-btn">
+                    <button class="fa fa-angle-left" {{action 'scrollLeft'}}></button>
+                </div>
+            {{/if}}
+            {{#if enableRight}}
+                <div class="next-btn">
+                    <button class="fa fa-angle-right" {{action 'scrollRight'}}></button>
+                </div>
+            {{/if}}
+        {{/if}}
     </div>
-    {{#if isOverflowing}} {{#if enableLeft}}
-    <div class="prev-btn">
-        <button class="fa fa-angle-left" {{action 'scrollLeft'}}></button>
-    </div>
-    {{/if}} {{#if enableRight}}
-    <div class="next-btn">
-        <button class="fa fa-angle-right" {{action 'scrollRight'}}></button>
-    </div>
-    {{/if}} {{/if}}
-</div>
 {{/if}}

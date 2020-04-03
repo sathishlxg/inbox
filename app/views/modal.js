@@ -12,17 +12,16 @@ export default Ember.View.extend({
         });
 
         Ember.run.next(this, function() {
-            Ember.$(document).on(
-                "click.modal",
-                Ember.run.bind(this, this._onClickOutside)
-            );
+            Ember.$(document).on("click.modal", Ember.run.bind(this, this._onClickOutside));
         });
     },
+
     _onClickOutside: function(evt) {
         if (Ember.isEmpty(this.$().has(Ember.$(evt.target)))) {
             this.get("controller").send("close");
         }
     },
+
     willDestroyElement: function(argument) {
         Ember.$(document).off("click.modal");
     }

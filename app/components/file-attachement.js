@@ -47,11 +47,9 @@ export default Component.extend({
         scrollLeft: function() {
             if (this.get("left") <= 0) return;
 
-            this.set(
-                "left",
-                this.get("scrollElement").scrollLeft() -
-                    this.get("scrollElement")[0].scrollWidth / 3
-            );
+            var $el = this.get("scrollElement");
+
+            this.set("left", $el.scrollLeft() - $el[0].scrollWidth / 3);
 
             this.$(".attachments-wrapper").animate(
                 {
@@ -65,11 +63,9 @@ export default Component.extend({
             if (this.get("width") - this.get("left") < this.get("width") / 3)
                 return;
 
-            this.set(
-                "left",
-                this.get("scrollElement").scrollLeft() +
-                    this.get("scrollElement")[0].scrollWidth / 3
-            );
+            var $el = this.get("scrollElement");
+
+            this.set("left", $el.scrollLeft() + $el[0].scrollWidth / 3);
 
             this.$(".attachments-wrapper").animate(
                 {

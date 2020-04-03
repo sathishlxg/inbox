@@ -6,19 +6,45 @@ export default Controller.extend({
 
     selectedItems: alias("application.queuedItems"),
 
-    globalSelect: function() {
-        if (!this.get("selectedItems")) return false;
+    isPinned: alias("application.showPinnedItems"),
 
+    isViewUpdated: false,
+
+    messages: function(){
+        var model = this.get('model');
+
+        if (this.get("isPinned")) {
+            return model.filter(function(message) {
+                return !!message.get('isPinned');
+            });
+        }
+
+        return model;
+    }.property("model", "isPinned", "isViewUpdated"),
+
+    globalSelect: function() {
         return this.get("selectedItems").length > 0;
     }.property("selectedItems.[]"),
 
     actions: {
-        itemSelected: function(value) {
+        onSelectionChange: function(value) {
             if (value.selected) {
                 this.get("selectedItems").pushObject(value.id);
             } else {
                 this.get("selectedItems").removeObject(value.id);
             }
+        },
+
+        updateMessagePin: function({id, value}) {
+            var message = this.get('model').find(function(m) {
+                return m.get('id') === id;
+            });
+
+            if (message) {
+                this.send("updatePin", message, value);
+            }
+
+            this.toggleProperty("isViewUpdated");
         }
     }
 });
