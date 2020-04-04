@@ -46,6 +46,7 @@ body {
 
 .menu-wrapper.inbox .search-box {
     width: 98%;
+    padding-right: 24px;
 }
 
 .menu-wrapper.inbox {
@@ -187,7 +188,6 @@ body {
 
 .center-container .search-box {
     display: table-cell;
-    padding-right: 24px;
     line-height: 56px;
     white-space: nowrap;
     transition: 0.2s;
