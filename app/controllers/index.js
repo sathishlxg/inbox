@@ -1,5 +1,6 @@
 import Controller from "@ember/controller";
 import { alias } from "@ember/object/computed";
+import {chunk} from "../utils";
 
 export default Controller.extend({
     application: Ember.inject.controller(),
@@ -21,6 +22,25 @@ export default Controller.extend({
 
         return model;
     }.property("model", "isPinned", "isViewUpdated"),
+
+
+    messageGroups: function() {
+        var n = 3;
+        var groups = [];
+        var messages = this.get("messages");
+        var chunks = ["Today", "Yesterday", "Last week", "Last Month"];
+
+        var chunkSize = Math.ceil(messages.length / n);
+
+        for (let i = 0; i < chunkSize; i++) {
+            groups.pushObject({
+                chunk: chunks[i],
+                messages: messages.slice(i * n, i * n + n)
+            });
+        }
+
+        return groups;
+    }.property("messages.[]"),
 
     globalSelect: function() {
         return this.get("selectedItems").length > 0;

@@ -3,11 +3,11 @@
         <div class="mail-header">
             <div class="image">
                 <img src={{mail.avatar}} />
-                <label class="selector">
-                    {{input type="checkbox" checked=isItemSelected}}
-                    <span>
-                        <i class="fa fa-check"></i>
-                    </span>
+                    <label class="selector">
+                        {{input type="checkbox" checked=isItemSelected}}
+                        <span>
+                            <i class="fa fa-check"></i>
+                        </span>
                 </label>
             </div>
             <div class="name">
@@ -29,23 +29,30 @@
                 <i class="fa fa-thumb-tack"></i>
             </a>
         {{/if}}
-        <ul class="actions-icon-list">
-            <li class="action-icon" {{action "pinItem"}}>
-                <a href="#" class="{{if mail.isPinned 'pinned' }}">
-                    <i class="fa fa-thumb-tack"></i>
-                </a>
-            </li>
-            <li class="action-icon">
-                {{snooze-options onOpen=(action "handleMenuOpen")}}
-            </li>
-            <li class="action-icon">
-                <a href="#">
-                    <i class="fa fa-check"></i>
-                </a>
-            </li>
-            <li class="action-icon">
-                {{settings-options onOpen=(action "handleMenuOpen")}}
-            </li>
-        </ul>
+        {{#if showDone}}
+            <a href="#" class="done-msg">
+                <i class="fa fa-check"></i>
+            </a>
+        {{/if}}
+        {{#unless hideActions}}
+            <ul class="actions-icon-list">
+                <li class="action-icon" {{action "pinItem"}}>
+                    <a href="#" class="{{if mail.isPinned 'pinned' }}">
+                        <i class="fa fa-thumb-tack"></i>
+                    </a>
+                </li>
+                <li class="action-icon">
+                    {{snooze-options onOpen=(action "handleMenuOpen")}}
+                </li>
+                <li class="action-icon">
+                    <a href="#">
+                        <i class="fa fa-check"></i>
+                    </a>
+                </li>
+                <li class="action-icon">
+                    {{settings-options onOpen=(action "handleMenuOpen")}}
+                </li>
+            </ul>
+        {{/unless}}
     </div>
 </div>

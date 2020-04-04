@@ -9,25 +9,27 @@
             </div>
         </article>
         {{else}}
-            <article class="wrapper">
-                <div class="header">
-                    <div class="time">Friday</div>
-                    <div class="action">
-                        <button>
-                            <i class="fa fa-check fa-lg"></i>
-                        </button>
+            {{#each messageGroups as |group|}}
+                <article class="wrapper">
+                    <div class="header">
+                        <div class="time">{{group.chunk}}</div>
+                        <div class="action">
+                            <button>
+                                <i class="fa fa-check fa-lg"></i>
+                            </button>
+                        </div>
                     </div>
-                </div>
-                {{#each messages as |message|}}
-                    {{mail-item
-                        mail = message
-                        showSnooze = "showSnooze"
-                        showSettings = "showSettings"
-                        isSelected = globalSelect
-                        setSelected = "onSelectionChange"
-                        onUpdate = "updateMessagePin"
-                    }}
-                {{/each}}
-            </article>
+                    {{#each group.messages as |message|}}
+                        {{mail-item
+                            mail = message
+                            showSnooze = "showSnooze"
+                            showSettings = "showSettings"
+                            isSelected = globalSelect
+                            setSelected = "onSelectionChange"
+                            onUpdate = "updateMessagePin"
+                        }}
+                    {{/each}}
+                </article>
+            {{/each}}
     {{/unless}}
 </section>

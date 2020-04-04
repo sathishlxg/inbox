@@ -1,0 +1,43 @@
+<section>
+    <article class="wrapper">
+        <div class="dark-background">
+            <div class="view-heading">
+                <p>Purchases</p>
+                <div class="action">
+                    <button><i class="fa fa-cog fa-lg"></i></button>
+                    <button><i class="fa fa-check fa-lg"></i></button>
+                    <button><i class="fa fa-ellipsis-v fa-lg"></i></button>
+                </div>
+            </div>
+            <article class="info-page-wrapper">
+                <div class="info-page">
+                    <div class="info-content">
+                        <p><b>Purchases</b> include purchase-related emails, such as receipts and delivery updates.</p>
+                        <p>It's bundled in your inbox.</p>
+                        <div class="info-actions">
+                            <button class="disabled">DISABLE BUNDLING</button>
+                            <button>GOT IT</button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <div class="header">
+                <div class="time">Friday</div>
+                <div class="action">
+                    <button>
+                        <i class="fa fa-check fa-lg"></i>
+                    </button>
+                </div>
+            </div>
+            {{#each model as |message|}}
+                {{mail-item
+                    mail = message
+                    showSnooze = "showSnooze"
+                    showSettings = "showSettings"
+                    isSelected = globalSelect
+                    setSelected = "itemSelected"
+                }}
+            {{/each}}
+        </div>
+    </article>
+</section>

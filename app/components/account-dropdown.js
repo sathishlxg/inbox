@@ -11,7 +11,7 @@ export default Component.extend({
     },
 
     _onClickOutside: function(evt) {
-        if (this.$() && isEmpty(this.$().has(Ember.$(evt.target)))) {
+        if (this.$() && isEmpty(this.$().has($(evt.target)))) {
             this.set("isOpen", false);
         }
     },

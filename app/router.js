@@ -13,7 +13,7 @@ Router.map(function() {
     this.route("done");
     this.route("draft");
     this.route("sent");
-    this.route("reminders");
+    this.route("purchases");
     this.route("trash");
     this.route("spam");
 });

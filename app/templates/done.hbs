@@ -7,4 +7,21 @@
             </div>
         </div>
     </article>
+    <article class="wrapper">
+        <div class="header">
+            <div class="time">Today</div>
+            <div class="action">
+                <button>
+                    <i class="fa fa-check fa-lg"></i>
+                </button>
+            </div>
+        </div>
+        {{#each model as |message|}}
+            {{mail-item
+                mail = message
+                showDone = true
+                hideActions = true
+            }}
+        {{/each}}
+    </article>
 </section>
