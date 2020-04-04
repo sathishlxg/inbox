@@ -8,65 +8,84 @@
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
-  }
+}
 
-  .msg-compose.minimized {
+.msg-compose.minimized {
     height: 40px;
-  }
+    width: 240px;
+}
 
-  .msg-compose .msg-content-wrapper {
+div.minimized {
+    width: 240px;
+}
+
+.msg-compose .msg-content-wrapper {
     height: 100%;
-  }
+}
 
-  .msg-compose.minimized .msg-content-wrapper {
+.msg-compose.minimized .msg-content-wrapper {
     display: none;
-  }
+}
 
-  .msg-compose input,
-  .msg-compose textarea {
+.msg-compose input,
+.msg-compose textarea {
     border: none;
     outline: none;
     width: 100%;
     resize: none;
     padding: 10px;
-  }
-  .msg-compose .msg-compose-wrapper {
+}
+
+.msg-compose .msg-compose-wrapper {
     height: 100%;
     width: 100%;
     position: relative;
-  }
-  .msg-compose .msg-compose-wrapper .msg-title-bar {
+}
+
+.msg-compose .msg-compose-wrapper .msg-title-bar {
     height: 40px;
     background: #555;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     color: white;
-  }
-  .msg-compose .msg-compose-wrapper .msg-title-bar a {
+}
+
+.msg-compose .msg-compose-wrapper .msg-title-bar a {
     text-decoration: none;
     color: white;
-  }
-  .msg-compose .msg-compose-wrapper .msg-title-bar div {
+}
+
+.msg-compose .msg-compose-wrapper .msg-title-bar div {
     display: inline-block;
     line-height: 40px;
     margin: 0 10px;
-  }
-  .msg-compose .msg-compose-wrapper .msg-title-bar div i {
+}
+
+.msg-compose .msg-compose-wrapper .msg-title-bar div i {
     margin: 0 5px;
-  }
-  .msg-compose .msg-compose-wrapper .msg-recipients {
+}
+
+.msg-compose .msg-compose-wrapper .msg-recipients {
     background: white;
     border-bottom: 1px solid #c6c6c6;
-  }
-  .msg-compose .msg-compose-wrapper .msg-recipients .cc-list,
-  .msg-compose .msg-compose-wrapper .msg-recipients .bcc-list {
+}
+
+.msg-compose .msg-compose-wrapper .msg-recipients .cc-list.expanded,
+.msg-compose .msg-compose-wrapper .msg-recipients .bcc-list.expanded {
+    display: block;
+}
+
+.msg-compose .msg-compose-wrapper .msg-recipients .cc-list,
+.msg-compose .msg-compose-wrapper .msg-recipients .bcc-list {
     display: none;
-  }
-  .msg-compose .msg-compose-wrapper .msg-recipients .to-list {
+}
+
+.msg-compose .msg-compose-wrapper .msg-recipients .to-list {
     padding-right: 30px;
     position: relative;
-  }
-  .msg-compose .msg-compose-wrapper .msg-recipients .to-list span.arrow {
+}
+
+.msg-compose .msg-compose-wrapper .msg-recipients .to-list span.arrow {
     position: absolute;
     right: 5px;
     top: 5px;
@@ -80,25 +99,35 @@
     cursor: pointer;
     width: 20px;
     height: 20px;
-  }
-  .msg-compose .msg-compose-wrapper .msg-recipients .to-list span.arrow:hover {
+}
+
+.msg-compose .msg-compose-wrapper .msg-recipients .to-list span.arrow:hover {
     border-radius: 2px;
     border: 1px solid #ccc;
-  }
-  .msg-compose .msg-compose-wrapper .msg-subject {
+}
+
+.msg-compose .msg-compose-wrapper .msg-subject {
     background: white;
     min-height: 30px;
-  }
-  .msg-compose .msg-compose-wrapper .msg-subject input {
+}
+
+.msg-compose .msg-compose-wrapper .msg-subject input {
     height: 30px;
     font-weight: 800;
-  }
-  .msg-compose .msg-compose-wrapper .msg-body textarea {
+}
+
+.msg-compose .msg-compose-wrapper .msg-body {
+    height: 70%;
+    padding-bottom: 5px;
+}
+
+.msg-compose .msg-compose-wrapper .msg-body textarea {
     font-family: inherit;
     display: block;
     height: 100%;
-  }
-  .msg-compose .msg-compose-wrapper .msg-footer {
+}
+
+.msg-compose .msg-compose-wrapper .msg-footer {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -106,14 +135,16 @@
     line-height: 50px;
     border-top: 1px solid #c6c6c6;
     font-size: 16px;
-  }
-  .msg-compose .msg-compose-wrapper .msg-footer a {
+}
+
+.msg-compose .msg-compose-wrapper .msg-footer a {
     text-decoration: none;
     color: #333;
     font-weight: bold;
     margin: 0 10px;
-  }
-  .msg-compose .msg-compose-wrapper .msg-footer a.send-btn {
+}
+
+.msg-compose .msg-compose-wrapper .msg-footer a.send-btn {
     background: #4285f4;
     -webkit-transform: translate3d(0, 0, 0);
     position: relative;
@@ -126,52 +157,63 @@
     color: white;
     font-weight: normal;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.24);
-  }
-  .msg-compose .msg-compose-wrapper .msg-footer a.send-btn:hover {
+}
+
+.msg-compose .msg-compose-wrapper .msg-footer a.send-btn:hover {
     background: #2a75f3;
     text-shadow: 2px 2px rgba(0, 0, 0, 0.15);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.14), 0 6px 8px rgba(0, 0, 0, 0.24);
-  }
-  .msg-compose .msg-compose-wrapper .msg-footer div {
-    margin: 0 15px;
-  }
+}
 
-  .msg-wrapper {
+.msg-compose .msg-compose-wrapper .msg-footer div {
+    margin: 0 15px;
+}
+
+.msg-wrapper {
     bottom: 0;
     left: 0;
     right: 0;
     padding-right: 87px;
     position: fixed;
     direction: rtl;
-    z-index: 999;
+    z-index: 9999;
     transform: translateZ(0);
-  }
+}
 
-  .msg-compose-container {
+.msg-compose-container {
     border-spacing: 15px 0;
     display: table;
     width: 100%;
-  }
+}
 
-  .row {
+.row {
     display: table-row;
-  }
+}
 
-  .empty-cell {
+.row > div.cell:nth-last-child(2) {
+    padding-left: 480px;
+}
+
+.empty-cell {
     display: table-cell;
-  }
-  .empty-cell:after {
+}
+
+.empty-cell:after {
     content: "";
     font-size: 0;
-  }
+}
 
-  .cell {
+.cell {
     width: 480px;
     display: table-cell;
     margin-right: 15px;
     direction: ltr;
-  }
+}
 
-  .wrap {
+.wrap {
     position: relative;
-  }
+}
+
+.template {
+    display: none;
+}

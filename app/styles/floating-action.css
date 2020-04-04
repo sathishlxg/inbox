@@ -1,0 +1,116 @@
+.floating-btn {
+    position: fixed;
+    z-index: 99999;
+    right: 20px;
+    bottom: 50px;
+}
+
+.floating-btn:hover .action-btn {
+    transform: rotate(360deg);
+}
+
+.floating-btn:hover .action-btn:after {
+    content: "\f040";
+}
+
+.floating-btn:hover>.floating-menus li button {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.floating-btn:hover>.floating-menus li:nth-child(5) button {
+    transition: all 0.2s ease;
+}
+
+.floating-btn:hover>.floating-menus li:nth-child(4) button {
+    transition: all 0.2s ease 0.05s;
+}
+
+.floating-btn:hover>.floating-menus li:nth-child(3) button {
+    transition: all 0.2s ease 0.1s;
+}
+
+.floating-btn:hover>.floating-menus li:nth-child(2) button {
+    transition: all 0.2s ease 0.15s;
+}
+
+.floating-btn:hover>.floating-menus li:nth-child(1) button {
+    transition: all 0.2s ease 0.2s;
+}
+
+.floating-menus {
+    margin-bottom: 20px;
+    position: fixed;
+    bottom: 50px;
+    right: 30px;
+    z-index: 100;
+    width: 40px;
+    list-style: none;
+    padding-bottom: 15px;
+}
+
+.floating-menus li button {
+    position: relative;
+    border: none;
+    outline: none;
+    margin: 5px 0px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    z-index: 3;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
+    opacity: 0;
+    transform: scale(0);
+}
+
+.floating-menus li button img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.floating-menus li button span {
+    display: none;
+    position: absolute;
+    padding: 6px;
+    white-space: nowrap;
+    color: #ececec;
+    background: rgba(70, 70, 70, 0.9);
+    right: 115%;
+    top: 16%;
+    border-radius: 3px;
+}
+
+.floating-menus li button:hover span {
+    display: block;
+}
+
+.floating-menus li:nth-child(1) button {
+    transition: all 0.2s ease;
+}
+
+.floating-menus li:nth-child(2) button {
+    transition: all 0.2s ease 0.05s;
+}
+
+.floating-menus li:nth-child(3) button {
+    transition: all 0.2s ease 0.1s;
+}
+
+.floating-menus li:nth-child(4) button {
+    transition: all 0.2s ease 0.15s;
+}
+
+.floating-menus li:nth-child(5) button {
+    transition: all 0.2s ease 0.2s;
+}
+
+.floating-menus li > button.invite-action {
+    background: url(https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/1x/ic_speeddialbg_clr_r1.png) center center no-repeat;
+}
+
+.floating-menus li>button.invite-action img {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+}

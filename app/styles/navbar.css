@@ -1,0 +1,207 @@
+.left-container,
+.right-container {
+    min-width: 50px;
+    max-width: 250px;
+    width: 18%;
+    height: 100%;
+    line-height: 56px;
+    overflow: hidden;
+}
+
+.left-container {
+    float: left;
+}
+
+.left-container .back {
+    display: none;
+}
+
+.left-container .menu-toggle-icon {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 8px;
+    top: 20%;
+    margin-left: 5px;
+    line-height: 56px;
+    /* display: inline-block; */
+    float: left;
+}
+
+.left-container .menu-toggle-icon input[type="checkbox"] {
+    display: none;
+}
+
+.left-container .menu-toggle-icon:active {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.left-container .menu-toggle-icon .icon-bar {
+    display: block;
+    margin: 4px;
+    border-top: 2px solid white;
+}
+
+.left-container a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.left-container .logo {
+    position: relative;
+    display: inline-block;
+    line-height: 56px;
+    padding: 0 10px;
+    font-size: 20px;
+    width: 80px;
+}
+
+.center-container {
+    position: relative;
+    width: 64%;
+    height: 65px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.center-container .search-box {
+    display: table-cell;
+    line-height: 56px;
+    white-space: nowrap;
+    transition: 0.2s;
+}
+
+.center-container .search-box>input {
+    height: 40px;
+    width: 100%;
+    display: inline-block;
+    right: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.15);
+    position: relative;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 0 0 0 50px;
+    border-radius: 2px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+}
+
+.center-container .search-box:after {
+    content: "\f002";
+    font-family: FontAwesome;
+    position: absolute;
+    color: white;
+    font-size: 16px;
+    left: 20px;
+    cursor: pointer;
+}
+
+.center-container .chk-pin {
+    display: none;
+    line-height: 56px;
+    width: 60px;
+    margin-right: 10px;
+}
+
+.center-container .chk-pin span {
+    display: inline-block;
+    top: 2px;
+    position: relative;
+    height: 17px;
+    width: 44px;
+    border-radius: 20px;
+    background: #1266f1;
+    cursor: pointer;
+}
+
+.center-container .chk-pin span:after {
+    content: "\f08d";
+    font-family: FontAwesome;
+    font-size: 14px;
+    transform: rotate(45deg);
+    text-align: center;
+    color: white;
+    position: absolute;
+    background: inherit;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    top: -28%;
+    left: -1px;
+    line-height: 30px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+    transition: all 0.2s ease;
+}
+
+.center-container .chk-pin input {
+    display: none;
+}
+
+.center-container .chk-pin input:checked+span {
+    background: white;
+}
+
+.center-container .chk-pin input:checked+span:after {
+    left: 22px;
+    background: white;
+    color: #4285f4;
+    transform: rotate(0deg);
+}
+
+.center-container ::-webkit-input-placeholder {
+    color: white;
+}
+
+.center-container .search-wrapper {
+    display: table;
+    width: 100%;
+}
+
+.center-container .queue-items {
+    line-height: 56px;
+    text-align: left;
+    padding: 0 10px 0 20px;
+    color: #3c80f6;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.center-container .queue-action .queue-action-item {
+    display: inline-block;
+    list-style: none;
+    padding: 0 10px;
+    font-size: 18px;
+}
+
+.right-container {
+    float: right;
+    text-align: right;
+}
+
+.right-container nav.menus li {
+    display: inline-block;
+    margin-right: 15px;
+    padding: 2px 5px;
+}
+
+.right-container nav.menus li a:hover {
+    color: black;
+    opacity: 0.5;
+}
+
+.right-container nav.menus li .link-image {
+    position: relative;
+    top: 7px;
+}
+
+.right-container nav.menus li .link-image img {
+    width: 24px;
+    height: 24px;
+    border-radius: 100%;
+}
+

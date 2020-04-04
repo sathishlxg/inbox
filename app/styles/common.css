@@ -1,0 +1,71 @@
+.show {
+    transform: translateX(0px);
+    opacity: 1;
+}
+
+.hide {
+    opacity: 0;
+    transform: translateX(-250px);
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+.color-green {
+    color: #33ac71;
+}
+
+.color-amber {
+    color: #e6e61a;
+}
+
+.color-cyan {
+    color: #00b3b3;
+}
+
+.color-blue {
+    color: #4285f4;
+}
+
+.color-red {
+    color: #cc3333;
+}
+
+.color-orange {
+    color: #ef6c00;
+}
+
+.color-purple {
+    color: rebeccapurple;
+}
+
+.color-grey {
+    color: #616161;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.font:after {
+    content: "\f031";
+    font-family: "fontAwesome";
+}
+
+@-webkit-keyframes grow {
+    from {
+        -webkit-transform: scale(0, 0);
+    }
+    to {
+        -webkit-transform: scale(1, 1);
+    }
+}

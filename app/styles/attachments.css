@@ -1,0 +1,177 @@
+
+.wrapper .attachments {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.wrapper .main-wrapper {
+    border: 1px solid transparent;
+}
+
+.wrapper .attachments-wrapper {
+    overflow: hidden;
+    padding-left: 245px;
+    white-space: nowrap;
+}
+
+.attachments .document {
+    width: 132px !important;
+    padding: 5px;
+}
+
+.attachments .picture {
+    padding: 0 !important;
+    width: 132px !important;
+    height: 88px !important;
+}
+
+.attachments .video {
+    padding: 0 !important;
+    height: 88px !important;
+    width: 380px !important;
+}
+
+.attachments .video-clip {
+    float: left;
+    width: 132px;
+    height: 88px;
+    position: relative;
+}
+
+.attachments .video-clip > i {
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    opacity: 0.5;
+    height: 40px;
+    color: #424242;
+    position: absolute;
+    font-size: 40px !important;
+    margin-top: -20px !important;
+    margin-left: -27px !important;
+}
+
+.attachments .video-clip > img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.attachments .video-info {
+    padding-top: 25px;
+    font-weight: 400;
+}
+
+.attachments .video-info span {
+    color: #757575;
+    margin-top: 5px;
+    display: inline-block;
+}
+
+.attachments .item {
+    height: 28px;
+    overflow: hidden;
+    color: #424242;
+    font-weight: 500;
+    position: relative;
+    margin-right: 10px;
+    border-radius: 2px;
+    transition: all 0.2s;
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.03);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.11), 0 1px 2px rgba(0, 0, 0, 0.22);
+}
+
+.attachments.has-pictures .item {
+    height: 88px !important;
+}
+
+.attachments .doc-name {
+    font-weight: 400;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-left: 25px;
+    text-overflow: ellipsis;
+}
+
+.attachments.has-pictures .doc-name {
+    height: 39px;
+    padding: 5px !important;
+}
+
+.attachments .doc-type {
+    top: 6px;
+    position: absolute;
+}
+
+.attachments.has-pictures .doc-type {
+    line-height: 34px;
+    position: relative;
+}
+
+.attachments.has-pictures .doc-type span {
+    font-size: 11px;
+    color: #757575;
+    display: inline-block;
+}
+
+.attachments .doc-type span {
+    display: none;
+}
+
+.attachments .item:hover {
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.13), 0 3px 6px rgba(0, 0, 0, 0.26);
+}
+
+.attachments .item i {
+    margin: 0 5px;
+    font-size: 16px;
+    display: inline-block;
+}
+
+.attachments button {
+    opacity: 0;
+    width: 30px;
+    height: 30px;
+    outline: none;
+    cursor: pointer;
+    visibility: hidden;
+    border-radius: 50%;
+    background: #fff;
+    transition: all 0.3s;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.07), 0 4px 4px rgba(0, 0, 0, 0.14);
+}
+
+.attachments:hover button {
+    opacity: 1;
+    visibility: visible;
+}
+
+.next-btn,
+.prev-btn {
+    top: 50%;
+    color: #fafafa;
+    margin-top: -17px;
+    position: absolute;
+    display: inline-block;
+}
+
+.next-btn > button,
+.prev-btn > button {
+    font-weight: bold;
+    color: #e5e5e5;
+}
+
+.next-btn {
+    right: -15px;
+}
+
+.prev-btn {
+    left: -15px;
+}
+
+.next-btn:hover > button,
+.prev-btn:hover > button {
+    color: #000;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
+}

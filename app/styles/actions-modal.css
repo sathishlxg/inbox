@@ -1,0 +1,101 @@
+.actions.menu-active .actions-icon-list {
+    display: block;
+}
+
+.item-selected .actions-icon-list {
+    display: none !important;
+}
+
+.actions .actions-icon-list {
+    right: 0px;
+    display: none;
+    list-style: none;
+    background: white;
+    padding-right: 15px;
+}
+
+.actions .actions-icon-list .action-icon {
+    margin: 0 2px;
+    display: inline-block;
+}
+
+.actions .actions-icon-list .action-icon a {
+    padding: 5px;
+    opacity: 0.5;
+    color: black;
+    text-decoration: none;
+}
+
+.actions .actions-icon-list .action-icon a:hover {
+    opacity: 0.8;
+}
+
+.actions-icon-list .action-icon a.pinned {
+    opacity: 1;
+    color: #4285f4;
+}
+
+.actions-modal {
+    top: 35px;
+}
+
+.actions-modal {
+    right: 0;
+    width: 250px;
+    z-index: 99999;
+    font-size: 13px;
+    position: absolute;
+    background: white;
+    line-height: normal;
+    display: inline-block;
+    transform-origin: top right;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.16), 0 6px 12px rgba(0, 0, 0, 0.32);
+}
+
+.actions-modal .actions-footer {
+    background: #fafafa;
+    border-top: 1px solid #e5e5e5;
+}
+
+.actions-modal .actions-header {
+    padding: 15px;
+    font-size: 13px;
+    color: #212121;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.actions-header .actions-header-title {
+    font-weight: 400;
+    font-size: 1.2em;
+    padding: 0 10px;
+}
+
+.actions-modal .action-item {
+    display: block;
+    cursor: pointer;
+    list-style: none;
+}
+
+.actions-list {
+    overflow: auto;
+}
+
+.actions-modal .actions-footer > a.action-item,
+.actions-modal .actions-body .actions-list .action-item a {
+    opacity: 1;
+    padding: 15px;
+    display: block;
+    color: #212121;
+    text-decoration: none;
+}
+
+.actions-modal .actions-footer a.action-item:hover,
+.actions-modal .actions-body .actions-list a:hover {
+    background: #e5e5e5;
+}
+
+.actions-modal i {
+    width: 20px;
+    margin: 0 10px;
+    font-size: 14px !important;
+}

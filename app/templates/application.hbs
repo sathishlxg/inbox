@@ -14,28 +14,13 @@
             <a href="#" class="logo back" {{action "emptyQueue"}}><i class="fa fa-arrow-left"></i> Back</a>
         {{/unless}}
     </div>
-    {{nav-sidebar isSidebarOpen = isSidebarOpen currentPath = currentRoutePath}}
     <div class="right-container">
         <nav class="menus">
             <ul>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-comment"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-th"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-bell"></i>
-                    </a>
-                </li>
-                <li>
-                    {{account-dropdown}}
-                </li>
+                <li><a href="#"><i class="fa fa-comment"></i></a></li>
+                <li><a href="#"><i class="fa fa-th"></i></a></li>
+                <li><a href="#"><i class="fa fa-bell"></i></a></li>
+                <li>{{account-dropdown}}</li>
             </ul>
         </nav>
     </div>
@@ -57,22 +42,16 @@
                 {{count}} Selected
                 <ul class="queue-action pull-right">
                     <li class="queue-action-item">
-                        <a href="#">
-                            <i class="fa fa-trash"></i>
-                        </a>
+                        <a href="#"><i class="fa fa-trash"></i></a>
                     </li>
                     <li class="queue-action-item">
-                        <a href="#">
-                            <i class="fa fa-thumb-tack"></i>
-                        </a>
+                        <a href="#"><i class="fa fa-thumb-tack"></i></a>
                     </li>
                     <li class="queue-action-item">
                         {{snooze-options}}
                     </li>
                     <li class="queue-action-item">
-                        <a href="#">
-                            <i class="fa fa-check"></i>
-                        </a>
+                        <a href="#"><i class="fa fa-check"></i></a>
                     </li>
                     <li class="queue-action-item">
                         {{settings-options}}
@@ -83,7 +62,14 @@
     </div>
 </div>
 <div class="body-wrapper">
-    {{fa-button showInvite = "showInvite" onCreateCompose = "onCreateCompose"}}
+    {{nav-sidebar
+        isSidebarOpen = isSidebarOpen
+        currentPath = currentRoutePath
+    }}
+    {{fa-button
+        showInvite = "showInvite"
+        onCreateCompose = "onCreateCompose"
+    }}
     {{compose-container
         bringToFront = "bringToFront"
         composeSessions = composeSessions
