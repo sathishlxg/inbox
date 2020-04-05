@@ -1,3 +1,5 @@
+@use 'variables';
+
 .show {
     transform: translateX(0px);
     opacity: 1;
@@ -17,35 +19,35 @@
 }
 
 .color-green {
-    color: #33ac71;
+    color: variables.colors(green);
 }
 
 .color-amber {
-    color: #e6e61a;
+    color: variables.colors(amber);
 }
 
 .color-cyan {
-    color: #00b3b3;
+    color: variables.colors(cyan);
 }
 
 .color-blue {
-    color: #4285f4;
+    color: variables.colors(primary);
 }
 
 .color-red {
-    color: #cc3333;
+    color: variables.colors(red);
 }
 
 .color-orange {
-    color: #ef6c00;
+    color: variables.colors(orange);
 }
 
 .color-purple {
-    color: rebeccapurple;
+    color: variables.colors(purple);
 }
 
 .color-grey {
-    color: #616161;
+    color: variables.colors(grey);
 }
 
 .left {

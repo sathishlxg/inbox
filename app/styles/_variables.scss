@@ -1,0 +1,15 @@
+$colors: (
+    primary: #4285f4,
+    red: #cc3333,
+    grey: #616161,
+    cyan: #00b3b3,
+    amber: #e6e61a,
+    green: #33ac71,
+    orange: #ef6c00,
+    white: #ffffff,
+    pruple: rebeccapurple
+);
+
+@function colors($color-name) {
+    @return map-get($colors, $color-name);
+}

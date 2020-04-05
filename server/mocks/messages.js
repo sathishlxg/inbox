@@ -101,13 +101,57 @@ module.exports = function(app) {
                     content:
                         "With the increasing amount of boilerplate in modern JavaScript projects, this tool could come in very handy. It’s easy to get started.",
                     isPinned: false,
-                    attachments: [{
-                        id: "5.1",
-                        fileName: "NewsLetter",
-                        fileType: "document",
-                        ext: ".pdf",
-                        url: "https://google.com"
-                    }]
+                    attachments: [
+                        {
+                            id: "5.1",
+                            fileName: "NewsLetter",
+                            fileType: "document",
+                            ext: ".pdf",
+                            url: "https://google.com"
+                        },
+                        {
+                            id: "5.2",
+                            fileName: "Tips & Tricks",
+                            fileType: "document",
+                            ext: ".doc",
+                            url: "https://google.com"
+                        },
+                        {
+                            id: "5.3",
+                            fileName: "Interview quiestions",
+                            fileType: "document",
+                            ext: ".pdf",
+                            url: "https://google.com"
+                        },
+                        {
+                            id: "5.4",
+                            fileName: "Terms & Conditions",
+                            fileType: "document",
+                            ext: ".pdf",
+                            url: "https://google.com"
+                        },
+                        {
+                            id: "5.5",
+                            fileName: "log",
+                            fileType: "document",
+                            ext: ".exe",
+                            url: "https://google.com"
+                        },
+                        {
+                            id: "5.7",
+                            fileName: "System design",
+                            fileType: "document",
+                            ext: ".pdf",
+                            url: "https://google.com"
+                        },
+                        {
+                            id: "5.8",
+                            fileName: "Testing results",
+                            fileType: "document",
+                            ext: ".xlsx",
+                            url: "https://google.com"
+                        }
+                    ]
                 },
                 {
                     id: 6,

@@ -1,11 +1,11 @@
-@import 'common.css';
-@import 'navbar.css';
-@import 'sidebar.css';
-@import 'floating-action.css';
-@import 'attachments.css';
-@import 'dialog.css';
-@import 'actions-modal.css';
-@import 'compose-editor.css';
+@import 'common';
+@import 'app-bar';
+@import 'sidebar';
+@import 'floating-action';
+@import 'attachments';
+@import 'dialog';
+@import 'actions-modal';
+@import 'compose-editor';
 
 * {
     padding: 0;

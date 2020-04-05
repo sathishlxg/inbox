@@ -1,66 +1,10 @@
-<div class="menu-wrapper {{if hasItems 'queued search' currentRoutePath}}">
-    <div class="left-container">
-        {{#unless hasItems}}
-            <label class="menu-toggle-icon" {{action "toggleSideBar"}}>
-                <input type="checkbox" />
-                <span href="#" class="icon-bar"></span>
-                <span href="#" class="icon-bar"></span>
-                <span href="#" class="icon-bar"></span>
-            </label>
-            <a class="logo" href="#">
-                <span>{{route-name currentRoutePath}}</span>
-            </a>
-        {{else}}
-            <a href="#" class="logo back" {{action "emptyQueue"}}><i class="fa fa-arrow-left"></i> Back</a>
-        {{/unless}}
-    </div>
-    <div class="right-container">
-        <nav class="menus">
-            <ul>
-                <li><a href="#"><i class="fa fa-comment"></i></a></li>
-                <li><a href="#"><i class="fa fa-th"></i></a></li>
-                <li><a href="#"><i class="fa fa-bell"></i></a></li>
-                <li>{{account-dropdown}}</li>
-            </ul>
-        </nav>
-    </div>
-    <div class="center-container">
-        {{#unless hasItems}}
-            <div class="search-wrapper">
-                <div class="search-box">
-                    <input type="text" placeholder="Search" spellcheck="false" />
-                </div>
-                <div class="chk-pin">
-                    <label>
-                        <input type="checkbox" onclick={{action "togglePinnedItems" value = "target.checked"}}/>
-                        <span></span>
-                    </label>
-                </div>
-            </div>
-        {{else}}
-            <div class="queue-items">
-                {{count}} Selected
-                <ul class="queue-action pull-right">
-                    <li class="queue-action-item">
-                        <a href="#"><i class="fa fa-trash"></i></a>
-                    </li>
-                    <li class="queue-action-item">
-                        <a href="#"><i class="fa fa-thumb-tack"></i></a>
-                    </li>
-                    <li class="queue-action-item">
-                        {{snooze-options}}
-                    </li>
-                    <li class="queue-action-item">
-                        <a href="#"><i class="fa fa-check"></i></a>
-                    </li>
-                    <li class="queue-action-item">
-                        {{settings-options}}
-                    </li>
-                </ul>
-            </div>
-        {{/unless}}
-    </div>
-</div>
+{{app-bar
+    hasItems = hasItems
+    title = currentRoutePath
+    emptyQueue = "emptyQueue"
+    toggleSideBar = "toggleSideBar"
+    togglePinnedItems = "togglePinnedItems"
+}}
 <div class="body-wrapper">
     {{nav-sidebar
         isSidebarOpen = isSidebarOpen

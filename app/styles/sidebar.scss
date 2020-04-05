@@ -1,0 +1,55 @@
+.sidebar {
+    left: 0;
+    top: 56px;
+    bottom: 0;
+    width: 220px;
+    overflow: auto;
+    position: fixed;
+    transition: all 0.2s ease;
+
+    a {
+        text-decoration: none !important;
+    }
+
+    .selected-menu {
+        border-radius: 4px;
+        background: rgba(0, 0, 0, 0.05);
+    }
+
+    ul {
+        position: relative;
+        padding: 12px 8px 52px;
+
+        li {
+            list-style: none;
+            position: relative;
+
+            &:hover {
+                background: rgba(0, 0, 0, 0.02);
+            }
+
+            &.separator {
+                border-bottom: 1px solid #dddddd;
+            }
+
+            a {
+                padding: 15px;
+                display: block;
+                cursor: pointer;
+                color: #9b9b9b;
+                font-weight: 600;
+                text-decoration: none;
+
+                i {
+                    display: inline-block;
+                }
+
+                span {
+                    padding-left: 20px;
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}
+

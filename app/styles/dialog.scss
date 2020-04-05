@@ -1,0 +1,85 @@
+.dialog-overlay {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99999;
+    position: fixed;
+    background: rgba(10, 10, 10, 0.6);
+
+    .dialog {
+        top: 50%;
+        left: 50%;
+        padding: 10px;
+        min-width: 240px;
+        max-width: 400px;
+        min-height: 100px;
+        background: white;
+        position: absolute;
+        margin-top: -114px;
+        margin-left: -200px;
+        animation: grow 0.2s ease forwards;
+        -webkit-animation: grow 0.2s ease forwards;
+        box-shadow: 0 0 14px rgba(0, 0, 0, 0.24), 0 14px 28px rgba(0, 0, 0, 0.48);
+
+        .dialog-header {
+            padding: 20px 10px;
+
+            i {
+                color: #4285f4;
+                margin: 0px 10px;
+            }
+
+            h3 {
+                font-weight: normal !important;
+            }
+        }
+
+        .dialog-body {
+            margin: 14px 10px;
+
+            .border {
+                width: 100%;
+                margin-top: -10px;
+                margin-bottom: 30px;
+                border-bottom: 2px solid transparent;
+                height: 2px;
+            }
+
+            input {
+                width: 100%;
+                height: 30px;
+                outline: none;
+                border: none;
+                margin: 10px 0px;
+                position: relative;
+
+                &:focus + .border {
+                    border-bottom: 2px solid #4285f4;
+                }
+            }
+        }
+
+        .dialog-footer {
+            a {
+                margin: 5px;
+                float: right;
+                padding: 8px;
+                cursor: pointer;
+                color: #757575;
+                font-weight: bold;
+                border-radius: 2px;
+                text-decoration: none;
+                background: transparent;
+
+                &:hover {
+                    background: rgba(198, 198, 198, 0.7);
+                }
+
+                &.dialog-action {
+                    color: #4285f4;
+                }
+            }
+        }
+    }
+}
