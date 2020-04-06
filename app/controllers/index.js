@@ -1,6 +1,73 @@
 import Controller from "@ember/controller";
 import { alias } from "@ember/object/computed";
-import {chunk} from "../utils";
+/*
+import {action} from "@ember/object";
+import { tracked } from '@glimmer/tracking';
+import { inject as service } from '@ember/service';
+
+export default class IndexController extends Controller {
+    @tracked application = Ember.inject.controller();
+    @tracked isViewUpdated = false;
+
+    get selectedItems() {
+        return alias("application.queuedItems");
+    }
+
+    get isPinned() {
+        return alias("application.showPinnedItems");
+    }
+
+    get messages() {
+        var model = this.get("model");
+
+        if (this.isPinned) {
+            return model.filter(({isPinned}) => isPinned);
+        }
+
+        return model;
+    }
+
+    get messageGroups() {
+        const n = 3;
+        const groups = [];
+        const chunkSize = Math.ceil(this.messages.length / n);
+        const chunks = ["Today", "Yesterday", "Last week", "Last Month"];
+
+        for (let i = 0; i < chunkSize; i++) {
+            groups.push({
+                chunk: chunks[i],
+                messages: this.messages.slice(i * n, i * n + n)
+            });
+        }
+
+        return groups;
+    }
+
+    get globalSelect() {
+        return this.selectedItems.length > 0;
+    }
+
+    @action
+    onSelectionChange(value) {
+        if (value.selected) {
+            this.get("selectedItems").pushObject(value.id);
+        } else {
+            this.get("selectedItems").removeObject(value.id);
+        }
+    }
+
+    @action
+    updateMessagePin({id, value}) {
+        var message = this.model.find(m => m.id === id);
+
+        if (message) {
+            this.send("updatePin", message, value);
+            this.isViewUpdated = !this.isViewUpdated;
+        }
+    }
+
+}
+*/
 
 export default Controller.extend({
     application: Ember.inject.controller(),

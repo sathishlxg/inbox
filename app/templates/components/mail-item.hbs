@@ -1,43 +1,47 @@
-<div class="content-wrapper {{if isSelected 'item-selected'}}">
-    <div class="main-wrapper {{if isItemSelected 'mail-selected'}}">
+<div class="content-wrapper {{if @isSelected 'item-selected'}}">
+    <div class="main-wrapper {{if this.isItemSelected 'mail-selected'}}">
         <div class="mail-header">
             <div class="image">
-                <img src={{mail.avatar}} />
+                <img src={{@mail.avatar}} />
                     <label class="selector">
-                        {{input type="checkbox" checked=isItemSelected}}
+                        <input
+                            type="checkbox"
+                            checked={{this.isItemSelected}}
+                            {{on "change" this.onSelectionChange}}
+                        />
                         <span>
                             <i class="fa fa-check"></i>
                         </span>
                 </label>
             </div>
             <div class="name">
-                <span>{{mail.senderName}}</span>
+                <span>{{@mail.senderName}}</span>
             </div>
             <div class="subject">
                 <div class="content">
-                    <span class="fs">{{mail.subject}}</span>
+                    <span class="fs">{{@mail.subject}}</span>
                     <span> - </span>
-                    <span class="sn">{{trimmedContent}}</span>
+                    <span class="sn">{{this.trimmedContent}}</span>
                 </div>
             </div>
         </div>
-        {{file-attachement attachments=mail.attachments}}
+        {{file-attachement attachments=@mail.attachments}}
     </div>
-    <div class="actions {{if isMenuActive 'menu-active'}}">
-        {{#if showPin}}
+    <div class="actions {{if this.isMenuActive 'menu-active'}}">
+        {{#if this.showPin}}
             <a href="#" class="pinned-msg">
                 <i class="fa fa-thumb-tack"></i>
             </a>
         {{/if}}
-        {{#if showDone}}
+        {{#if @showDone}}
             <a href="#" class="done-msg">
                 <i class="fa fa-check"></i>
             </a>
         {{/if}}
-        {{#unless hideActions}}
+        {{#unless @hideActions}}
             <ul class="actions-icon-list">
-                <li class="action-icon" {{action "pinItem"}}>
-                    <a href="#" class="{{if mail.isPinned 'pinned' }}">
+                <li class="action-icon" {{on "click" this.pinItem}}>
+                    <a href="#" class="{{if @mail.isPinned 'pinned' }}">
                         <i class="fa fa-thumb-tack"></i>
                     </a>
                 </li>

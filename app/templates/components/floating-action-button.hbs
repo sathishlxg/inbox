@@ -1,0 +1,21 @@
+<div class="floating-btn">
+    <div class="btn-wrapper">
+        <button class="action-btn" {{on "click" (fn @onCreateCompose "")}}></button>
+        <span class="action-popover">Compose</span>
+    </div>
+    <ul class="floating-menus">
+        {{#each this.importantPeople as |user|}}
+            <FloatingActionButtonItem
+                @name={{user.name}}
+                @imgSrc={{user.imgSrc}}
+                @onCreateCompose={{fn @onCreateCompose user.email}}
+            />
+        {{/each}}
+        <li>
+            <button class="invite-action" {{on "click" @showInvite}}>
+                <img src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/1x/ic_invite_wht_24dp_r1.png" />
+                <span class="action-popover">Inite to Inbox</span>
+            </button>
+        </li>
+    </ul>
+</div>

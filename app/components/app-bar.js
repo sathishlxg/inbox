@@ -1,17 +1,14 @@
-import Component from "@ember/component";
+import Component from "@glimmer/component";
+import {action} from "@ember/object";
 
-export default Component.extend({
-    actions: {
-        emptyQueue: function() {
-            this.sendAction("emptyQueue");
-        },
+export default class FileItem extends Component {
+    @action
+    onClick(event) {
+        event.preventDefault();
+        event.stopPropagation();
 
-        toggleSideBar: function() {
-            this.sendAction("toggleSideBar");
-        },
-
-        togglePinnedItems: function(value) {
-            this.sendAction("togglePinnedItems", value);
+        if (this.args.toggleSideBar) {
+            this.args.toggleSideBar();
         }
     }
-});
+}

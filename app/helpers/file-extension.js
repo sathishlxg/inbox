@@ -1,7 +1,7 @@
 import { helper } from "@ember/component/helper";
 import { htmlSafe } from "@ember/string";
 
-export function fileExtension([value, ...rest]) {
+export function fileExtension([value]) {
     switch (value) {
         case ".doc":
         case ".docx":

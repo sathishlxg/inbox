@@ -1,17 +1,17 @@
-<div class="menu-wrapper {{if hasItems 'queued search' title}}">
+<div class="menu-wrapper {{if @hasItems 'queued search' @title}}">
     <div class="left-container">
-        {{#unless hasItems}}
-            <label class="menu-toggle-icon" {{action "toggleSideBar"}}>
+        {{#unless @hasItems}}
+            <label class="menu-toggle-icon" {{on "click" this.onClick}}>
                 <input type="checkbox" />
                 <span href="#" class="icon-bar"></span>
                 <span href="#" class="icon-bar"></span>
                 <span href="#" class="icon-bar"></span>
             </label>
             <a class="logo" href="#">
-                <span>{{route-name title}}</span>
+                <span>{{route-name @title}}</span>
             </a>
         {{else}}
-            <a href="#" class="logo back" {{action "emptyQueue"}}><i class="fa fa-arrow-left"></i> Back</a>
+            <a href="#" class="logo back" {{on "click" @emptyQueue}}><i class="fa fa-arrow-left"></i> Back</a>
         {{/unless}}
     </div>
     <div class="right-container">
@@ -25,21 +25,21 @@
         </nav>
     </div>
     <div class="center-container">
-        {{#unless hasItems}}
+        {{#unless @hasItems}}
             <div class="search-wrapper">
                 <div class="search-box">
                     <input type="text" placeholder="Search" spellcheck="false" />
                 </div>
                 <div class="chk-pin">
                     <label>
-                        <input type="checkbox" onclick={{action "togglePinnedItems" value = "target.checked"}}/>
+                        <input type="checkbox" value={{@isChecked}} {{on "click" (fn @togglePinnedItems @isChecked)}} />
                         <span></span>
                     </label>
                 </div>
             </div>
         {{else}}
             <div class="queue-items">
-                {{count}} Selected
+                {{@count}} Selected
                 <ul class="queue-action pull-right">
                     <li class="queue-action-item">
                         <a href="#"><i class="fa fa-trash"></i></a>

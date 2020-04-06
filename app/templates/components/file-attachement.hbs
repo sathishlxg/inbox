@@ -2,7 +2,7 @@
     <div class="attachments {{if hasPictures 'has-pictures'}}">
         <div class="attachments-wrapper">
             {{#each attachments as |file|}}
-                {{file-item file=file}}
+                <FileItem @file={{file}} />
             {{/each}}
         </div>
         {{#if isOverflowing}}

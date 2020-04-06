@@ -1,3 +1,5 @@
+/* eslint-disable ember/no-jquery */
+/* eslint-disable ember/no-function-prototype-extensions */
 import Component from "@ember/component";
 
 export default Component.extend({

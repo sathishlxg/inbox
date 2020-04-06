@@ -1,3 +1,4 @@
+/* eslint-disable ember/no-jquery */
 import Component from "@ember/component";
 import $ from "jquery";
 import { bind } from "@ember/runloop";

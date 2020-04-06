@@ -1,7 +1,13 @@
 import Route from "@ember/routing/route";
 
 export default Route.extend({
+
+
     actions: {
+        didTransition() {
+            this.controller.get("queuedItems").clear();
+        },
+
         close: function() {
             this.disconnectOutlet({
                 outlet: "modal",
@@ -9,11 +15,7 @@ export default Route.extend({
             });
         },
 
-        open: function(name, position) {
-            if (position) {
-                this.controllerFor("application").set("location", position);
-            }
-
+        open: function(name) {
             this.render(name, {
                 into: "application",
                 outlet: "modal",

@@ -1,3 +1,5 @@
+/* eslint-disable no-async-promise-executor */
+/* eslint-disable ember/no-jquery */
 import Component from "@ember/component";
 import $ from "jquery";
 import { bind } from "@ember/runloop";

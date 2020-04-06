@@ -1,17 +1,15 @@
-import Component from "@ember/component";
+import Component from "@glimmer/component";
 
-export default Component.extend({
-    tagName: "",
+export default class FileItem extends Component {
+    get isImage() {
+        return this.args.file.fileType === "image";
+    }
 
-    isImage: function() {
-        return this.get("file.fileType") === "image";
-    }.property("file.fileType"),
+    get isVideo() {
+        return this.args.file.fileType === "video";
+    }
 
-    isVideo: function() {
-        return this.get("file.fileType") === "video";
-    }.property("file.fileType"),
-
-    isDocument: function() {
-        return this.get("file.fileType") === "document";
-    }.property("file.fileType")
-});
+    get isDocument() {
+        return this.args.file.fileType === "document";
+    }
+}

@@ -1,7 +1,11 @@
+/* eslint-disable no-async-promise-executor */
+/* eslint-disable ember/new-module-imports */
+/* eslint-disable ember/no-jquery */
 import Ember from "ember";
+import $ from 'jquery';
 
 export default Ember.View.extend({
-    didInsertElement: function(argument) {
+    didInsertElement: function() {
         var location = this.get("controller.location"),
             width = this.$(".actions-modal").width();
 
@@ -12,7 +16,7 @@ export default Ember.View.extend({
         });
 
         Ember.run.next(this, function() {
-            Ember.$(document).on("click.modal", Ember.run.bind(this, this._onClickOutside));
+            $(document).on("click.modal", Ember.run.bind(this, this._onClickOutside));
         });
     },
 
@@ -22,7 +26,7 @@ export default Ember.View.extend({
         }
     },
 
-    willDestroyElement: function(argument) {
+    willDestroyElement: function() {
         Ember.$(document).off("click.modal");
     }
 });

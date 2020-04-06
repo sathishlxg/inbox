@@ -1,46 +1,64 @@
 {
-    "name": "inbox",
-    "version": "0.0.1",
-    "description": "A clone of Google's Inbox mail client with emberjs",
-    "private": true,
-    "directories": {
-        "doc": "doc",
-        "test": "tests"
-    },
-    "scripts": {
-        "build": "ember build",
-        "lint:js": "eslint ./*.js app blueprints config lib server tests",
-        "dev": "ember serve",
-        "start": "ember server --live-reload=false"
-    },
-    "repository": "",
-    "author": "",
-    "license": "MIT",
-    "devDependencies": {
-        "broccoli-asset-rev": "^2.4.5",
-        "ember-cli": "~3.1.4",
-        "ember-cli-app-version": "^3.0.0",
-        "ember-cli-babel": "^6.6.0",
-        "ember-cli-dependency-checker": "^2.0.0",
-        "ember-cli-eslint": "^4.2.1",
-        "ember-cli-htmlbars": "^2.0.1",
-        "ember-cli-htmlbars-inline-precompile": "^1.0.0",
-        "ember-cli-inject-live-reload": "^1.4.1",
-        "ember-cli-sass": "^10.0.1",
-        "ember-cli-shims": "^1.2.0",
-        "ember-cli-sri": "^2.1.0",
-        "ember-cli-uglify": "^2.0.0",
-        "ember-data": "~3.1.0",
-        "ember-export-application-global": "^2.0.0",
-        "ember-load-initializers": "^1.0.0",
-        "ember-maybe-import-regenerator": "^0.1.6",
-        "ember-resolver": "^4.0.0",
-        "ember-source": "~3.1.0",
-        "eslint-plugin-ember": "^5.0.0",
-        "loader.js": "^4.2.3",
-        "sass": "^1.26.3"
-    },
-    "engines": {
-        "node": "6.10.0"
-    }
+  "name": "inbox",
+  "version": "0.0.1",
+  "description": "A clone of Google's Inbox mail client with emberjs",
+  "private": true,
+  "author": "",
+  "directories": {
+    "doc": "doc",
+    "test": "tests"
+  },
+  "scripts": {
+    "dev": "ember serve",
+    "lint:js": "eslint .",
+    "test:ember": "ember test",
+    "lint:hbs": "ember-template-lint .",
+    "start": "ember server --live-reload=false",
+    "build": "ember build --environment=production",
+    "lint": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*"
+  },
+  "repository": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@ember/optional-features": "^1.3.0",
+    "@glimmer/component": "^1.0.0",
+    "@glimmer/tracking": "^1.0.0",
+    "babel-eslint": "^10.1.0",
+    "broccoli-asset-rev": "^3.0.0",
+    "ember-auto-import": "^1.5.3",
+    "ember-cli-app-version": "^3.2.0",
+    "ember-cli-babel": "^7.18.0",
+    "ember-cli-dependency-checker": "^3.2.0",
+    "ember-cli-htmlbars": "^4.2.3",
+    "ember-cli-inject-live-reload": "^2.0.2",
+    "ember-cli-sass": "^10.0.1",
+    "ember-cli-sri": "^2.1.1",
+    "ember-cli-uglify": "^3.0.0",
+    "ember-data": "~3.17.0",
+    "ember-export-application-global": "^2.0.1",
+    "ember-fetch": "^7.0.1",
+    "ember-load-initializers": "^2.1.1",
+    "ember-maybe-import-regenerator": "^0.1.6",
+    "ember-qunit": "^4.6.0",
+    "ember-ref-modifier": "^1.0.0",
+    "ember-resolver": "^7.0.0",
+    "ember-source": "~3.17.0",
+    "ember-template-lint": "^2.4.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-ember": "^7.10.1",
+    "eslint-plugin-node": "^11.0.0",
+    "loader.js": "^4.7.0",
+    "npm-run-all": "^4.1.5",
+    "qunit-dom": "^1.1.0",
+    "sass": "^1.26.3"
+  },
+  "engines": {
+    "node": "10.* || >= 12"
+  },
+  "ember": {
+    "edition": "octane"
+  },
+  "dependencies": {
+    "ember-cli": "^3.17.0"
+  }
 }

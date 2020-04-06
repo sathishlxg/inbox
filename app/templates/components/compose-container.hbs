@@ -1,14 +1,12 @@
 <div class="msg-wrapper">
     <div class="msg-compose-container">
         <div id="msg-box" class="row">
-            {{#each composeSessions as |compose|}}
-                {{#if compose.id}}
-                    {{compose-editor
-                        compose = compose
-                        bringToFront = "bringToFront"
-                        onCloseCompose = "onCloseCompose"
-                    }}
-                {{/if}}
+            {{#each @composeSessions as |compose|}}
+                <ComposeEditor
+                    @compose={{compose}}
+                    @bringToFront={{@bringToFront}}
+                    @onCloseCompose={{@onCloseCompose}}
+                />
             {{/each}}
             <div class="empty-cell">
             </div>

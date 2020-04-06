@@ -1,24 +1,29 @@
-{{app-bar
-    hasItems = hasItems
-    title = currentRoutePath
-    emptyQueue = "emptyQueue"
-    toggleSideBar = "toggleSideBar"
-    togglePinnedItems = "togglePinnedItems"
-}}
+<AppBar
+    @hasItems={{hasItems}}
+    @count={{selectedCount}}
+    @title={{currentRoutePath}}
+    @isChecked={{showPinnedItems}}
+    @emptyQueue={{emptyQueue}}
+    @toggleSideBar={{toggleSideBar}}
+    @togglePinnedItems={{togglePinnedItems}}
+/>
 <div class="body-wrapper">
-    {{nav-sidebar
-        isSidebarOpen = isSidebarOpen
-        currentPath = currentRoutePath
-    }}
-    {{fa-button
-        showInvite = "showInvite"
-        onCreateCompose = "onCreateCompose"
-    }}
-    {{compose-container
-        bringToFront = "bringToFront"
-        composeSessions = composeSessions
-        onCloseCompose = "onCloseCompose"
-    }}
+    <NavSidebar
+        @isSidebarOpen={{isSidebarOpen}}
+        @currentPath={{currentRoutePath}}
+    />
+
+    <ComposeContainer
+        @bringToFront={{bringToFront}}
+        @onCloseCompose={{onCloseCompose}}
+        @composeSessions={{composeSessions}}
+    />
+
+    <FloatingActionButton
+        @showInvite={{showInvite}}
+        @onCreateCompose={{onCreateCompose}}
+    />
+
     {{outlet}}
 </div>
 {{outlet 'modal'}}

@@ -1,40 +1,42 @@
-<div class="settings-container">
-    <a href="#" {{action "openMenu"}}>
-        <i class="fa fa-ellipsis-v"></i>
-    </a>
-    {{#if isOpen}}
-        <div class="actions-modal">
-            <div class="actions-header">
-                <h3 class="actions-header-title">Move selected to...</h3>
+<Popover>
+    <div class="settings-container">
+        <a href="#" {{action "openMenu"}}>
+            <i class="fa fa-ellipsis-v"></i>
+        </a>
+        {{#if isOpen}}
+            <div class="actions-modal">
+                <div class="actions-header">
+                    <h3 class="actions-header-title">Move selected to...</h3>
+                </div>
+                <div class="actions-body">
+                    <ul class="actions-list">
+                        <li class="action-item">
+                            <a href="#"><i class="fa fa-trash"></i>Trash</a>
+                        </li>
+                        <li class="action-item">
+                            <a href="#"><i class="fa fa-warning color-red"></i>Spam</a>
+                        </li>
+                        <li class="action-item">
+                            <a href="#"><i class="fa fa-shopping-cart color-purple"></i>Purchase</a>
+                        </li>
+                        <li class="action-item">
+                            <a href="#"><i class="fa fa-line-chart color-orange"></i>Business</a>
+                        </li>
+                        <li class="action-item">
+                            <a href="#"><i class="fa fa-users color-blue"></i>Social</a>
+                        </li>
+                        <li class="action-item">
+                            <a href="#"><i class="fa fa-archive"></i>Forums</a>
+                        </li>
+                        <li class="action-item">
+                            <a href="#"><i class="fa fa-tags color-green"></i>Promos</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="actions-footer">
+                    <a class="action-item" href="#"><i class="fa fa-plus"></i>Create New...</a>
+                </div>
             </div>
-            <div class="actions-body">
-                <ul class="actions-list">
-                    <li class="action-item">
-                        <a href="#"><i class="fa fa-trash"></i>Trash</a>
-                    </li>
-                    <li class="action-item">
-                        <a href="#"><i class="fa fa-warning color-red"></i>Spam</a>
-                    </li>
-                    <li class="action-item">
-                        <a href="#"><i class="fa fa-shopping-cart color-purple"></i>Purchase</a>
-                    </li>
-                    <li class="action-item">
-                        <a href="#"><i class="fa fa-line-chart color-orange"></i>Business</a>
-                    </li>
-                    <li class="action-item">
-                        <a href="#"><i class="fa fa-users color-blue"></i>Social</a>
-                    </li>
-                    <li class="action-item">
-                        <a href="#"><i class="fa fa-archive"></i>Forums</a>
-                    </li>
-                    <li class="action-item">
-                        <a href="#"><i class="fa fa-tags color-green"></i>Promos</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="actions-footer">
-                <a class="action-item" href="#"><i class="fa fa-plus"></i>Create New...</a>
-            </div>
-        </div>
-    {{/if}}
-</div>
+        {{/if}}
+    </div>
+</Popover>
