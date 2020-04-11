@@ -6,6 +6,7 @@ export default class extends Component {
     @tracked isSnoozeOpen = false;
     @tracked isSettingsOpen = false;
     @tracked _isItemSelected = false;
+    @tracked showDetails = false;
 
     get isItemSelected() {
         if (!this.args.isSelected) {
@@ -53,5 +54,13 @@ export default class extends Component {
     @action
     handleMenuOpen(name, value) {
         this[name] = value;
+    }
+
+    @action
+    onOpenMessage(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        this.showDetails = !this.showDetails;
     }
 }

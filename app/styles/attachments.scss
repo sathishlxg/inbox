@@ -85,6 +85,10 @@
             padding: 0 !important;
             width: 132px !important;
             height: 88px !important;
+
+            .pics {
+                width: 100%;
+            }
         }
 
         .video {
@@ -113,8 +117,7 @@
             }
 
             img {
-                max-width: 100%;
-                max-height: 100%;
+                width: 100%;
             }
         }
 
