@@ -783,19 +783,27 @@ body {
 
 .dark-background {
     background: #89898426;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0 10%;
     border-radius: 2px;
     padding: 10px 0;
+
+    .header {
+        margin: 0 2%;
+    }
+
+    .content-wrapper {
+        margin: 0 2%;
+    }
+
+    .mail-wrapper {
+        margin: 2% -1%;
+    }
 }
 
-.dark-background .header {
-    margin: 0 2%;
-}
 
-.dark-background .content-wrapper {
-    margin: 0 2%;
-}
+
+
 
 .info-page-wrapper {
     position: relative;

@@ -1,8 +1,10 @@
-/* eslint-disable ember/no-jquery */
 import Component from "@glimmer/component";
 import {action} from "@ember/object";
+import { tracked } from "@glimmer/tracking";
 
 export default class extends Component {
+    @tracked isReplying = false;
+
     constructor() {
         super(...arguments);
 
@@ -16,7 +18,7 @@ export default class extends Component {
     }
 
     _handleClickOutside(e) {
-        if (!this.messageBody || !this.messageBody.contains(e.target)) {
+        if (this.messageBody && !this.messageBody.contains(e.target)) {
             this.args.onCloseMessage(e);
         }
     }
@@ -24,5 +26,13 @@ export default class extends Component {
     @action
     _setRef(ref) {
         this.messageBody = ref;
+    }
+
+    @action
+    onReply(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        this.isReplying = true;
     }
 }

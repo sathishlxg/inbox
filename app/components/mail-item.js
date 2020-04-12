@@ -33,7 +33,10 @@ export default class extends Component {
     }
 
     @action
-    onSelectionChange() {
+    onSelectionChange(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
         this._isItemSelected = !this._isItemSelected;
         const {mail: {id}, onSelectionChange} = this.args;
 
@@ -57,10 +60,7 @@ export default class extends Component {
     }
 
     @action
-    onOpenMessage(e) {
-        e.preventDefault();
-        e.stopPropagation();
-
+    onOpenMessage() {
         this.showDetails = !this.showDetails;
     }
 }

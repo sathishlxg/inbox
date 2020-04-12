@@ -8,7 +8,6 @@ import { inject as service } from '@ember/service';
 
 export default class ApplicationController extends Controller {
     @service router;
-
     @tracked queuedItems = [];
     @tracked composeSessions = [];
     @tracked isSidebarOpen = true;
@@ -29,8 +28,9 @@ export default class ApplicationController extends Controller {
     }
 
     @action
-    showInvite() {
-        this.args.showInvite();
+    onInviteClick() {
+        // Send action to route
+        this.send('showInvite');
     }
 
     @action

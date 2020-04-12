@@ -1,80 +1,100 @@
-/* eslint-disable ember/no-jquery */
 /* eslint-disable ember/no-function-prototype-extensions */
-import Component from "@ember/component";
+import Component from "@glimmer/component";
+import {action} from "@ember/object";
+import { tracked } from '@glimmer/tracking';
+// import $ from 'jquery';
 
-export default Component.extend({
-    left: 0,
+export default class FileAttachments extends Component {
+    @tracked left = 0;
+    @tracked width = 0;
+    @tracked isOverflowing = false;
 
-    width: 0,
+    get hasPictures() {
+        return this.args.attachments.any(({ext}) => ext === ".jpeg" || ext === ".png" );
+    }
 
-    isOverflowing: false,
+    get isLeftArrowEnabled() {
+        return this.left > 0;
+    }
 
-    scrollElement: null,
-
-    hasPictures: function() {
-        return this.get("attachments").any(function(item) {
-            return item.ext === ".jpeg" || item.ext === ".png";
-        });
-    }.property("attachments.@each"),
-
-    hasContent: function() {
-        return this.get("attachments").length > 0;
-    }.property("attachments.[]"),
-
-    enableLeft: function() {
-        return this.get("left") > 0;
-    }.property("left"),
-
-    enableRight: function() {
+    get isRightArrowEnabled() {
         return (
-            this.get("width") - this.get("left") + 20 >
-            this.get("scrollElement")[0].scrollWidth / 3
+            this.width - this.left + 20 >
+            this.attachmentWrapper.scrollWidth / 3
         );
-    }.property("left", "width"),
+    }
 
-    didInsertElement: function() {
-        this.set("scrollElement", this.$(".attachments-wrapper"));
-        this.set("left", this.get("scrollElement").scrollLeft());
-        this.set("width", this.$().outerWidth());
+    _animateLeft(element, scrollPosition) {
+        let scrollAmount = 0;
+        const slideTimer = setInterval(() => {
+            scrollAmount += 10;
+            element.scrollLeft += 10;
 
-        if (this.get("scrollElement") && this.get("scrollElement").length) {
-            this.set(
-                "isOverflowing",
-                this.get("scrollElement")[0].scrollWidth > this.get("width")
-            );
-        }
-    },
+            if(scrollAmount >= scrollPosition){
+                window.clearInterval(slideTimer);
+            }
 
-    actions: {
-        scrollLeft: function() {
-            if (this.get("left") <= 0) return;
+        }, 25);
+    }
 
-            var $el = this.get("scrollElement");
+    _animateRight(element, scrollPosition) {
+        let scrollAmount = 0;
+        const slideTimer = setInterval(() => {
+            scrollAmount += 10;
+            element.scrollLeft -= 10;
 
-            this.set("left", $el.scrollLeft() - $el[0].scrollWidth / 3);
+            if(scrollAmount >= scrollPosition){
+                window.clearInterval(slideTimer);
+            }
 
-            this.$(".attachments-wrapper").animate(
-                {
-                    scrollLeft: this.get("left")
-                },
-                300
-            );
-        },
+        }, 25);
+    }
 
-        scrollRight: function() {
-            if (this.get("width") - this.get("left") < this.get("width") / 3)
-                return;
+    _stopEvent(e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
 
-            var $el = this.get("scrollElement");
-
-            this.set("left", $el.scrollLeft() + $el[0].scrollWidth / 3);
-
-            this.$(".attachments-wrapper").animate(
-                {
-                    scrollLeft: this.get("left")
-                },
-                300
-            );
+    _calculatePosition() {
+        if (this.attachmentWrapper) {
+            this.element = this.attachmentWrapper.parentNode;
+            this.width = this.element.offsetWidth;
+            this.left = this.attachmentWrapper.scrollLeft;
+            this.isOverflowing = this.attachmentWrapper.scrollWidth > this.width;
         }
     }
-});
+
+    @action
+    _setRef(ref) {
+        this.attachmentWrapper = ref;
+
+        this._calculatePosition();
+    }
+
+    @action
+    scrollLeft(e) {
+        this._stopEvent(e);
+
+        if (this.left <= 0) return;
+
+        const {scrollLeft, scrollWidth} = this.attachmentWrapper;
+
+        this.left = scrollLeft - scrollWidth / 3;
+        this.attachmentWrapper.scrollLeft = this.left;
+        // this._animateRight(this.attachmentWrapper, this.left);
+    }
+
+    @action
+    scrollRight(e) {
+        this._stopEvent(e);
+
+        if (this.width - this.left < this.width / 3)
+            return;
+
+        const {scrollLeft, scrollWidth} = this.attachmentWrapper;
+
+        this.left = scrollLeft + scrollWidth / 3;
+        this.attachmentWrapper.scrollLeft = this.left;
+        // this._animateLeft(this.attachmentWrapper, this.left);
+    }
+}

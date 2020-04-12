@@ -4,11 +4,10 @@
             <div class="mail-header">
                 <div class="image">
                     <img src={{@mail.avatar}} />
-                        <label class="selector">
-                            <input
-                                type="checkbox"
-                                checked={{this.isItemSelected}}
-                                {{on "change" this.onSelectionChange}}
+                        <label class="selector" {{on "click" this.onSelectionChange}}>
+                            <Input
+                                @type="checkbox"
+                                @checked={{this.isItemSelected}}
                             />
                             <span>
                                 <i class="fa fa-check"></i>
@@ -26,7 +25,7 @@
                     </div>
                 </div>
             </div>
-            {{file-attachement attachments=@mail.attachments}}
+            <FileAttachement @attachments={{@mail.attachments}} />
         </div>
         <div class="actions {{if this.isMenuActive 'menu-active'}}">
             {{#if this.showPin}}

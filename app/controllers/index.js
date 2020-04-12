@@ -1,26 +1,27 @@
 import Controller from "@ember/controller";
 import { alias } from "@ember/object/computed";
-/*
+
 import {action} from "@ember/object";
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 
+/*
 export default class IndexController extends Controller {
-    @tracked application = Ember.inject.controller();
+    application = Ember.inject.controller();
     @tracked isViewUpdated = false;
 
     get selectedItems() {
-        return alias("application.queuedItems");
+        return this.application.queuedItems;
     }
 
     get isPinned() {
-        return alias("application.showPinnedItems");
+        return this.application.showPinnedItems;
     }
 
     get messages() {
-        var model = this.get("model");
+        const model = this.get('model');
 
-        if (this.isPinned) {
+        if (!!this.isPinned) {
             return model.filter(({isPinned}) => isPinned);
         }
 
@@ -50,9 +51,9 @@ export default class IndexController extends Controller {
     @action
     onSelectionChange(value) {
         if (value.selected) {
-            this.get("selectedItems").pushObject(value.id);
+            this.selectedItems.push(value.id);
         } else {
-            this.get("selectedItems").removeObject(value.id);
+            this.selectedItems.remove(value.id);
         }
     }
 
@@ -67,8 +68,8 @@ export default class IndexController extends Controller {
     }
 
 }
-*/
 
+*/
 export default Controller.extend({
     application: Ember.inject.controller(),
 

@@ -1,6 +1,6 @@
 <div class="mail-wrapper" {{ref this._setRef}}>
-    <div class="mail-top shadow">
-        <div class="mail-subject">{{@message.subject}}r</div>
+    <div class="mail-top shadow" {{on "click" @onCloseMessage}}>
+        <div class="mail-subject">{{@message.subject}}</div>
         <div class="mail-action"></div>
     </div>
     <div class="mail-content">
@@ -16,22 +16,34 @@
                 <div class="message">{{@message.content}}</div>
             </div>
         </div>
-        {{file-attachement attachments=@message.attachments}}
+        <FileAttachement @attachments={{@message.attachments}} />
         <div class="mail-footer shadow">
-            <div class="image">
-                <img src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/avatars/avatar_tile_s_56.png" />
-            </div>
-            <div class="replybox">
-                <div class="draft">
-                    <span>Draft </span>
-                    <span>to, {{@message.senderName}} <i class="fa fa-angle-down"></i></span>
+            {{#unless this.isReplying}}
+                <div class="quick-reply" {{on "click" this.onReply}}>
+                    <div class="image">
+                        <img src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/avatars/avatar_tile_s_56.png" />
+                    </div>
+                    <span>Reply</span>
+                    <div class="action">
+                        <i class="fa fa-mail-reply"></i>
+                    </div>
                 </div>
-                <textarea></textarea>
-                <div class="left">
-                    <a href="#" class="send-btn">SEND</a>
-                    <a href="#"><i class="fa fa-paperclip"></i></a>
+            {{else}}
+                <div class="image">
+                    <img src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/avatars/avatar_tile_s_56.png" />
                 </div>
-            </div>
+                <div class="replybox">
+                    <div class="draft">
+                        <span>Draft </span>
+                        <span>to, {{@message.senderName}} <i class="fa fa-angle-down"></i></span>
+                    </div>
+                    <textarea></textarea>
+                    <div class="left">
+                        <a href="#" class="send-btn">SEND</a>
+                        <a href="#"><i class="fa fa-paperclip"></i></a>
+                    </div>
+                </div>
+            {{/unless}}
         </div>
     </div>
 </div>

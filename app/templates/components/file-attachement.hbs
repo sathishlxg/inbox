@@ -1,19 +1,19 @@
-{{#if hasContent}}
+{{#if @attachments.length}}
     <div class="attachments {{if hasPictures 'has-pictures'}}">
-        <div class="attachments-wrapper">
-            {{#each attachments as |file|}}
+        <div class="attachments-wrapper" {{ref this._setRef}}>
+            {{#each @attachments as |file|}}
                 <FileItem @file={{file}} />
             {{/each}}
         </div>
         {{#if isOverflowing}}
-            {{#if enableLeft}}
+            {{#if this.isLeftArrowEnabled}}
                 <div class="prev-btn">
-                    <button class="fa fa-angle-left" {{action 'scrollLeft'}}></button>
+                    <button class="fa fa-angle-left" {{on 'click' this.scrollLeft}}></button>
                 </div>
             {{/if}}
-            {{#if enableRight}}
+            {{#if this.isRightArrowEnabled}}
                 <div class="next-btn">
-                    <button class="fa fa-angle-right" {{action 'scrollRight'}}></button>
+                    <button class="fa fa-angle-right" {{on 'click' this.scrollRight}}></button>
                 </div>
             {{/if}}
         {{/if}}
