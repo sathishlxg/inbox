@@ -1,32 +1,45 @@
-import Component from "@ember/component";
-import $ from "jquery";
-import { bind } from "@ember/runloop";
-import { isEmpty } from "@ember/utils";
+import Component from "@glimmer/component";
+import {action} from "@ember/object";
+import {tracked} from "@glimmer/tracking";
 
-export default Component.extend({
-    isOpen: false,
+export default class extends Component {
+    @tracked isOpen = false;
 
-    didInsertElement() {
-        $(document).on("click.global", bind(this, this._onClickOutside));
-    },
+    constructor() {
+        super(...arguments);
 
-    _onClickOutside: function(evt) {
-        if (this.$() && isEmpty(this.$().has($(evt.target)))) {
-            this.set("isOpen", false);
-        }
-    },
+        this._handleClickOutside = this._handleClickOutside.bind(this);
 
-    actions: {
-        openMenu: function() {
-            this.toggleProperty("isOpen");
-        },
+        window.addEventListener('click', this._handleClickOutside);
+    }
 
-        addAccount: function() {
-            alert("add account");
-        },
+    willDestroy() {
+        window.removeEventListener('click', this._handleClickOutside);
+    }
 
-        signOut: function() {
-            alert("signOut");
+    _handleClickOutside(e) {
+        if (!this.dropdown || !this.dropdown.contains(e.target)) {
+            this.isOpen = false;
         }
     }
-});
+
+    @action
+    _setRef(ref) {
+        this.dropdown = ref;
+    }
+
+    @action
+    openMenu() {
+        this.isOpen = !this.isOpen;
+    }
+
+    @action
+    addAccount() {
+        alert("add account");
+    }
+
+    @action
+    signOut() {
+        alert("signOut");
+    }
+}

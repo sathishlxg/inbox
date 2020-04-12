@@ -1,28 +1,31 @@
 import Route from "@ember/routing/route";
+import { action } from "@ember/object";
 
-export default Route.extend({
-    actions: {
-        close: function() {
-            this.disconnectOutlet({
-                outlet: "modal",
-                parentView: "application"
-            });
-        },
-
-        open: function(name, position) {
-            if (position) {
-                this.controllerFor("application").set("location", position);
-            }
-
-            this.render(name, {
-                into: "application",
-                outlet: "modal",
-                controller: "application"
-            });
-        },
-
-        showInvite: function() {
-            this.send("open", "invite");
-        }
+export default class DoneRoute extends Route {
+    @action
+    didTransition() {
+        this.controller.get("emptyQueue")();
     }
-});
+
+    @action
+    close() {
+        this.disconnectOutlet({
+            outlet: "modal",
+            parentView: "application"
+        });
+    }
+
+    @action
+    open(name) {
+        this.render(name, {
+            into: "application",
+            outlet: "modal",
+            controller: "application"
+        });
+    }
+
+    @action
+    showInvite() {
+        this.send("open", "invite");
+    }
+}

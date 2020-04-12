@@ -1,58 +1,58 @@
-<div class="content-wrapper {{if isSelected 'item-selected'}}">
-    <div class="main-wrapper {{if isItemSelected 'mail-selected'}}">
-        <div class="mail-header">
-            <div class="image">
-                <img src={{mail.avatar}} />
-                    <label class="selector">
-                        {{input type="checkbox" checked=isItemSelected}}
-                        <span>
-                            <i class="fa fa-check"></i>
-                        </span>
-                </label>
-            </div>
-            <div class="name">
-                <span>{{mail.senderName}}</span>
-            </div>
-            <div class="subject">
-                <div class="content">
-                    <span class="fs">{{mail.subject}}</span>
-                    <span> - </span>
-                    <span class="sn">{{trimmedContent}}</span>
+{{#unless this.showDetails}}
+    <div class="content-wrapper {{if @isSelected 'item-selected'}}">
+        <div class="main-wrapper {{if this.isItemSelected 'mail-selected'}}">
+            <div class="mail-header">
+                <div class="image">
+                    <img src={{@mail.avatar}} />
+                    <label class="selector" {{on "click" this.onSelectionChange}}>
+                        <Input @type="checkbox" @checked={{this.isItemSelected}} />
+                        <span><i class="fa fa-check"></i></span>
+                    </label>
+                </div>
+                <div {{on "click" this.onOpenMessage}}>
+                    <div class="name">
+                        <span>{{@mail.senderName}}</span>
+                    </div>
+                    <div class="subject">
+                        <div class="content">
+                            <span class="fs">{{@mail.subject}}</span>
+                            <span> - </span>
+                            <span class="sn">{{this.trimmedContent}}</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <FileAttachement @attachments={{@mail.attachments}} />
         </div>
-        {{file-attachement attachments=mail.attachments}}
+        <div class="actions {{if this.isMenuActive 'menu-active'}}">
+            {{#if this.showPin}}
+                <a href="#" class="pinned-msg"><i class="fa fa-thumb-tack"></i></a>
+            {{/if}}
+            {{#if @showDone}}
+                <a href="#" class="done-msg"><i class="fa fa-check"></i></a>
+            {{/if}}
+            {{#unless @hideActions}}
+                <ul class="actions-icon-list">
+                    <li class="action-icon" {{on "click" this.pinItem}}>
+                        <a href="#" class="{{if @mail.isPinned 'pinned' }}">
+                            <i class="fa fa-thumb-tack"></i>
+                        </a>
+                    </li>
+                    <li class="action-icon">
+                        {{snooze-options onOpen=(action "handleMenuOpen")}}
+                    </li>
+                    <li class="action-icon">
+                        <a href="#">
+                            <i class="fa fa-check"></i>
+                        </a>
+                    </li>
+                    <li class="action-icon">
+                        {{settings-options onOpen=(action "handleMenuOpen")}}
+                    </li>
+                </ul>
+            {{/unless}}
+        </div>
     </div>
-    <div class="actions {{if isMenuActive 'menu-active'}}">
-        {{#if showPin}}
-            <a href="#" class="pinned-msg">
-                <i class="fa fa-thumb-tack"></i>
-            </a>
-        {{/if}}
-        {{#if showDone}}
-            <a href="#" class="done-msg">
-                <i class="fa fa-check"></i>
-            </a>
-        {{/if}}
-        {{#unless hideActions}}
-            <ul class="actions-icon-list">
-                <li class="action-icon" {{action "pinItem"}}>
-                    <a href="#" class="{{if mail.isPinned 'pinned' }}">
-                        <i class="fa fa-thumb-tack"></i>
-                    </a>
-                </li>
-                <li class="action-icon">
-                    {{snooze-options onOpen=(action "handleMenuOpen")}}
-                </li>
-                <li class="action-icon">
-                    <a href="#">
-                        <i class="fa fa-check"></i>
-                    </a>
-                </li>
-                <li class="action-icon">
-                    {{settings-options onOpen=(action "handleMenuOpen")}}
-                </li>
-            </ul>
-        {{/unless}}
-    </div>
-</div>
+{{else}}
+    <MessageBody @onCloseMessage={{this.onOpenMessage}} @message={{@mail}}/>
+{{/unless}}

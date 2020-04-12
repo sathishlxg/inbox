@@ -1,70 +1,64 @@
 import Controller from "@ember/controller";
-import { alias } from "@ember/object/computed";
-import {chunk} from "../utils";
+import {action} from "@ember/object";
+import { inject as service } from '@ember/service';
 
-export default Controller.extend({
-    application: Ember.inject.controller(),
+export default class IndexController extends Controller {
+    @service appState;
 
-    selectedItems: alias("application.queuedItems"),
+    get selectedItems() {
+        return this.appState.queuedItems;
+    }
 
-    isPinned: alias("application.showPinnedItems"),
+    get isItemPinned() {
+        return this.appState.showPinnedItems;
+    }
 
-    isViewUpdated: false,
+    get messages() {
+        const model = this.get('model');
 
-    messages: function(){
-        var model = this.get('model');
-
-        if (this.get("isPinned")) {
-            return model.filter(function(message) {
-                return !!message.get('isPinned');
-            });
+        if (!!this.isItemPinned) {
+            return model.filter(({isPinned}) => isPinned);
         }
 
         return model;
-    }.property("model", "isPinned", "isViewUpdated"),
+    }
 
-
-    messageGroups: function() {
-        var n = 3;
-        var groups = [];
-        var messages = this.get("messages");
-        var chunks = ["Today", "Yesterday", "Last week", "Last Month"];
-
-        var chunkSize = Math.ceil(messages.length / n);
+    get messageGroups() {
+        const n = 3;
+        const groups = [];
+        const chunkSize = Math.ceil(this.messages.length / n);
+        const chunks = ["Today", "Yesterday", "Last week", "Last Month"];
 
         for (let i = 0; i < chunkSize; i++) {
-            groups.pushObject({
+            groups.push({
                 chunk: chunks[i],
-                messages: messages.slice(i * n, i * n + n)
+                messages: this.messages.slice(i * n, i * n + n)
             });
         }
 
         return groups;
-    }.property("messages.[]"),
+    }
 
-    globalSelect: function() {
-        return this.get("selectedItems").length > 0;
-    }.property("selectedItems.[]"),
+    get globalSelect() {
+        return this.selectedItems.length > 0;
+    }
 
-    actions: {
-        onSelectionChange: function(value) {
-            if (value.selected) {
-                this.get("selectedItems").pushObject(value.id);
-            } else {
-                this.get("selectedItems").removeObject(value.id);
-            }
-        },
-
-        updateMessagePin: function({id, value}) {
-            var message = this.get('model').find(function(m) {
-                return m.get('id') === id;
-            });
-
-            if (message) {
-                this.send("updatePin", message, value);
-            }
-
-            this.toggleProperty("isViewUpdated");
+    @action
+    onSelectionChange(value) {
+        if (value.selected) {
+            this.appState.add(value.id);
+        } else {
+            this.appState.remove(value.id);
         }
     }
-});
+
+    @action
+    updateMessagePin({id, value}) {
+        var message = this.model.find(m => m.id === id);
+
+        if (message) {
+            this.send("updatePin", message, value);
+        }
+    }
+
+}

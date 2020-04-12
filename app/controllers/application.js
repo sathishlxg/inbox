@@ -1,79 +1,95 @@
 import Controller from "@ember/controller";
+import {action} from "@ember/object";
+import { tracked } from '@glimmer/tracking';
+import { inject as service } from '@ember/service';
 
-export default Controller.extend({
-    queuedItems: [],
+export default class ApplicationController extends Controller {
+    @service router;
+    @service appState;
+    @tracked composeSessions = [];
+    @tracked isSidebarOpen = true;
 
-    isSidebarOpen: true,
-
-    showPinnedItems: false,
-
-    composeSessions: [],
-
-    currentRoutePath: function() {
-        const path = this.get("currentPath");
+    get currentRoutePath() {
+        const path = this.router.currentRouteName || "inbox";
 
         return path === "index" ? "inbox" : path;
-    }.property("currentPath"),
-
-    count: function() {
-        return this.get("queuedItems").length;
-    }.property("queuedItems.[]"),
-
-    hasItems: function() {
-        return this.get("queuedItems").length > 0;
-    }.property("queuedItems.[]"),
-
-    actions: {
-        emptyQueue: function() {
-            this.get("queuedItems").clear();
-        },
-
-        toggleSideBar: function() {
-            this.toggleProperty("isSidebarOpen");
-        },
-
-        togglePinnedItems: function(value) {
-            this.set("showPinnedItems", value);
-        },
-
-        onCreateCompose: function(email = "") {
-            var length = this.get("composeSessions").length || 0;
-
-            this.get("composeSessions").unshiftObject({id: length, index: length, to: email});
-        },
-
-        onCloseCompose: function(id) {
-            var composeSessions = this.get("composeSessions");
-            var sessionToRemove = composeSessions.find(c => c.id === id);
-
-            composeSessions.removeObject(sessionToRemove);
-        },
-
-        bringToFront: function(id, index) {
-            var highestIndex = 0;
-            var composeSessions = this.get("composeSessions");
-            var length = composeSessions.length;
-            var startIndex = composeSessions.findIndex(function(c) {
-                return c.index === index;
-            })
-
-            composeSessions.forEach(function(c) {
-                if (c.index > highestIndex) {
-                    highestIndex = c.index;
-                }
-            });
-
-            for (var i = startIndex; i >= 0; i--, highestIndex--) {
-                var current = composeSessions[i];
-
-                Ember.set(current, "index", highestIndex);
-            }
-
-            for (var i = startIndex + 1; i < length; i++, highestIndex--) {
-                var current = composeSessions[i];
-
-                Ember.set(current, "index", highestIndex);
-            }
-        }
     }
-});
+
+    get selectedCount() {
+        return this.appState.queuedItems.length;
+    }
+
+    get hasItems() {
+        return this.appState.queuedItems.length > 0;
+    }
+
+    @action
+    onInviteClick() {
+        // Send action to route
+        this.send('showInvite');
+    }
+
+    @action
+    onCreateCompose(email = "") {
+        let newState = this.composeSessions.slice();
+        let length = newState.length;
+
+        newState.unshift({id: length, index: length, to: email});
+
+        this.composeSessions = newState;
+    }
+
+    @action
+    emptyQueue() {
+        this.appState.empty();
+    }
+
+    @action
+    toggleSideBar() {
+        this.isSidebarOpen = !this.isSidebarOpen;
+    }
+
+    @action
+    togglePinnedItems() {
+        this.appState.toggleShowPinnedItems();
+    }
+
+    @action
+    onCloseCompose(id) {
+        var composeSessions = this.composeSessions.slice();
+        var sessionToRemove = composeSessions.findIndex(c => c.id === id);
+
+        composeSessions.splice(sessionToRemove, 1);
+
+        this.composeSessions = composeSessions;
+    }
+
+    @action
+    bringToFront(index) {
+        let current;
+        let highestIndex = 0;
+        let composeSessions = this.composeSessions.slice();
+        let length = composeSessions.length;
+        let startIndex = composeSessions.findIndex(c => c.index === index);
+
+        composeSessions.forEach(c => {
+            if (c.index > highestIndex) {
+                highestIndex = c.index;
+            }
+        });
+
+        for (let i = startIndex; i >= 0; i--, highestIndex--) {
+            current = composeSessions[i];
+
+            Ember.set(current, "index", highestIndex);
+        }
+
+        for (let i = startIndex + 1; i < length; i++, highestIndex--) {
+            current = composeSessions[i];
+
+            Ember.set(current, "index", highestIndex);
+        }
+
+        this.composeSessions = composeSessions;
+    }
+}

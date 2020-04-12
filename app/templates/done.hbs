@@ -16,12 +16,8 @@
                 </button>
             </div>
         </div>
-        {{#each model as |message|}}
-            {{mail-item
-                mail = message
-                showDone = true
-                hideActions = true
-            }}
+        {{#each @model as |message|}}
+            <MailItem @mail={{message}} @showDone={{true}} @hideActions={{true}} />
         {{/each}}
     </article>
 </section>

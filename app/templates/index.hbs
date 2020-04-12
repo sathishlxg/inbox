@@ -14,20 +14,18 @@
                     <div class="header">
                         <div class="time">{{group.chunk}}</div>
                         <div class="action">
-                            <button>
-                                <i class="fa fa-check fa-lg"></i>
-                            </button>
+                            <button><i class="fa fa-check fa-lg"></i></button>
                         </div>
                     </div>
                     {{#each group.messages as |message|}}
-                        {{mail-item
-                            mail = message
-                            showSnooze = "showSnooze"
-                            showSettings = "showSettings"
-                            isSelected = globalSelect
-                            setSelected = "onSelectionChange"
-                            onUpdate = "updateMessagePin"
-                        }}
+                        <MailItem
+                            @mail={{message}}
+                            @showSnooze={{showSnooze}}
+                            @isSelected={{globalSelect}}
+                            @showSettings={{showSettings}}
+                            @onUpdate={{action "updateMessagePin"}}
+                            @onSelectionChange={{action "onSelectionChange"}}
+                        />
                     {{/each}}
                 </article>
             {{/each}}

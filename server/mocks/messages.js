@@ -8,8 +8,7 @@ module.exports = function(app) {
             message: [
                 {
                     id: 1,
-                    avatar:
-                        "https://lh4.googleusercontent.com/-GXmmnYTuWkg/AAAAAAAAAAI/AAAAAAAAAAA/oK6DEDS7grM/w56-h56/photo.jpg",
+                    avatar: "/assets/images/user_1.jpg",
                     senderName: "Sathish kumar",
                     subject: "FW: Jobs to Apply for",
                     content:
@@ -24,7 +23,7 @@ module.exports = function(app) {
                     senderName: "Max",
                     subject: "Buffalo boy",
                     content:
-                        "Once in your life time you will truly come across someone",
+                        "Only once in your life, I truly believe, you find someone who can completely turn your world around. You tell them things that you’ve never shared with another soul and they absorb everything you say and actually want to hear more. You share hopes for the future, dreams that will never come true, goals that were never achieved and the many disappointments life has thrown at you. When something wonderful happens, you can’t wait to tell them about it, knowing they will share in your excitement. They are not embarrassed to cry with you when you are hurting or laugh with you when you make a fool of yourself. Never do they hurt your feelings or make you feel like you are not good enough, but rather they build you up and show you the things about yourself that make you special and even beautiful. There is never any pressure, jealousy or competition but only a quiet calmness when they are around. You can be yourself and not worry about what they will think of you because they love you for who you are. The things that seem insignificant to most people such as a note, song or walk become invaluable treasures kept safe in your heart to cherish forever. Memories of your childhood come back and are so clear and vivid it’s like being young again. Colours seem brighter and more brilliant. Laughter seems part of daily life where before it was infrequent or didn’t exist at all. A phone call or two during the day helps to get you through a long day’s work and always brings a smile to your face. In their presence, there’s no need for continuous conversation, but you find you’re quite content in just having them nearby. Things that never interested you before become fascinating because you know they are important to this person who is so special to you. You think of this person on every occasion and in everything you do. Simple things bring them to mind like a pale blue sky, gentle wind or even a storm cloud on the horizon. You open your heart knowing that there’s a chance it may be broken one day and in opening your heart, you experience a love and joy that you never dreamed possible. You find that being vulnerable is the only way to allow your heart to feel true pleasure that’s so real it scares you. You find strength in knowing you have a true friend and possibly a soul mate who will remain loyal to the end. Life seems completely different, exciting and worthwhile. Your only hope and security is in knowing that they are a part of your life",
                     hasAttachements: true,
                     isPinned: false,
                     attachments: [
@@ -48,8 +47,7 @@ module.exports = function(app) {
                             fileType: "image",
                             ext: ".jpeg",
                             url: "https://google.com",
-                            clipSrc:
-                                "https://lh3.googleusercontent.com/-gR6Xo5_uP8s/AAAAAAAAAAI/AAAAAAAAAAA/5CTZklN08qY/s132-c/photo.jpg"
+                            clipSrc: "/assets/images/user_2_big.jpg"
                         },
                         {
                             id: "4.4",
@@ -65,15 +63,13 @@ module.exports = function(app) {
                             ext: ".mpeg",
                             description: "4:56 - Youtube",
                             url: "https://google.com",
-                            clipSrc:
-                                "https://ci6.googleusercontent.com/proxy/zhVGOpL5idNAKq_vbCRCjdgAZy3oaX_Ju5rwNPC_K1SRIwGUQlpPpaco-1T-NepnzdSXxNR8Bh_D7p4qWE7oomy0JKugJA=nu"
+                            clipSrc: "/assets/images/video_src.jpg"
                         }
                     ]
                 },
                 {
                     id: 3,
-                    avatar:
-                        "https://cdn.wccftech.com/wp-content/uploads/2018/01/Google-Logo.png",
+                    avatar: "/assets/images/google_logo.png",
                     senderName: "Google",
                     subject: "New sign-in from Chrome on Windows",
                     content:
@@ -199,8 +195,7 @@ module.exports = function(app) {
                 },
                 {
                     id: 10,
-                    avatar:
-                        "https://facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png?w=512&h=512",
+                    avatar: "/assets/images/fb_logo.png",
                     senderName: "Facebook",
                     subject: "Connect with friends, family and other people you know",
                     content:

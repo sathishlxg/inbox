@@ -1,0 +1,48 @@
+<div class="mail-wrapper" {{ref this._setRef}}>
+    <div class="mail-top shadow" {{on "click" @onCloseMessage}}>
+        <div class="mail-subject">{{@message.subject}}</div>
+    </div>
+    <div class="mail-content">
+        <div class="mail-body ">
+            <div class="image">
+                <img src={{@message.avatar}} />
+            </div>
+            <div class="someClass">
+                <div class="sender">
+                    <sapn>{{@message.senderName}}</sapn>
+                    <span> to me </span>
+                </div>
+                <div class="message">{{@message.content}}</div>
+            </div>
+        </div>
+        <FileAttachement @attachments={{@message.attachments}} />
+        <div class="mail-footer shadow">
+            {{#unless this.isReplying}}
+                <div class="quick-reply" {{on "click" this.onReply}}>
+                    <div class="image">
+                        <img src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/avatars/avatar_tile_s_56.png" />
+                    </div>
+                    <span>Reply</span>
+                    <div class="action">
+                        <i class="fa fa-mail-reply"></i>
+                    </div>
+                </div>
+            {{else}}
+                <div class="image">
+                    <img src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/avatars/avatar_tile_s_56.png" />
+                </div>
+                <div class="replybox">
+                    <div class="draft">
+                        <span>Draft </span>
+                        <span>to, {{@message.senderName}} <i class="fa fa-angle-down"></i></span>
+                    </div>
+                    <textarea></textarea>
+                    <div class="left">
+                        <a href="#" class="send-btn">SEND</a>
+                        <a href="#"><i class="fa fa-paperclip"></i></a>
+                    </div>
+                </div>
+            {{/unless}}
+        </div>
+    </div>
+</div>

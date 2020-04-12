@@ -1,31 +1,29 @@
-import Component from "@ember/component";
+import Component from "@glimmer/component";
+import {action} from "@ember/object";
+import { tracked } from '@glimmer/tracking';
 
-export default Component.extend({
-    tag: 'div',
+export default class ComposeEditor extends Component {
+    @tracked showCcBcc = false;
+    @tracked isMinimized = false;
 
-    classNames: ['cell'],
+    @action
+    toggleCcBcc() {
+        this.showCcBcc = !this.showCcBcc;
+    }
 
-    classNameBindings: ['isMinimized:minimized'],
+    @action
+    onMinimize(e) {
+        e.stopPropagation();
 
-    showCcBcc: false,
+        this.isMinimized = !this.isMinimized;
+    }
 
-    isMinimized: false,
+    @action
+    onClose(index, event) {
+        event.stopPropagation();
 
-    actions: {
-        toggleCcBcc: function() {
-            this.toggleProperty("showCcBcc");
-        },
-
-        toggleMinimize: function() {
-            this.toggleProperty("isMinimized");
-        },
-
-        onCloseCompose: function(id) {
-            this.sendAction("onCloseCompose", id);
-        },
-
-        bringToFront: function(id, index) {
-            this.sendAction("bringToFront", id, index);
+        if (this.args.onCloseCompose) {
+            this.args.onCloseCompose(index);
         }
     }
-});
+}

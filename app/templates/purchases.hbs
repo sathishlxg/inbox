@@ -24,19 +24,14 @@
             <div class="header">
                 <div class="time">Friday</div>
                 <div class="action">
-                    <button>
-                        <i class="fa fa-check fa-lg"></i>
-                    </button>
+                    <button><i class="fa fa-check fa-lg"></i></button>
                 </div>
             </div>
-            {{#each model as |message|}}
-                {{mail-item
-                    mail = message
-                    showSnooze = "showSnooze"
-                    showSettings = "showSettings"
-                    isSelected = globalSelect
-                    setSelected = "itemSelected"
-                }}
+            {{#each @model as |message|}}
+                <MailItem
+                    @mail={{message}}
+                    @isSelected={{globalSelect}}
+                />
             {{/each}}
         </div>
     </article>

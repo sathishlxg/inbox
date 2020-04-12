@@ -1,40 +1,42 @@
 
-<div class="wrap" style="z-index: {{compose.index}};">
-    <div class="msg-compose {{if isMinimized 'minimized'}}">
-        <div class="msg-compose-wrapper">
-            <div class="msg-title-bar" {{action "bringToFront" compose.id compose.index}}>
-                <div class="icon left"><i class="fa fa-envelope"></i></div>
-                <div class="compose-actions right">
-                    <a href="#" class="minimize" {{action "toggleMinimize"}}><i class="fa fa-minus"></i></a>
-                    <a href="#" class="close" {{action "onCloseCompose" compose.id}}><i class="fa fa-times"></i></a>
-                </div>
-            </div>
-            <div class="msg-content-wrapper">
-                <div class="msg-recipients">
-                <div class="to-list">
-                    <input type="text" placeholder="To" value={{compose.to}}/>
-                    <span class="arrow" onclick={{action "toggleCcBcc"}}></span>
-                </div>
-                <div class="cc-list {{if showCcBcc 'expanded'}}">
-                    <input type="text" placeholder="cc" />
-                </div>
-                <div class="bcc-list {{if showCcBcc 'expanded'}}">
-                    <input type="text" placeholder="Bcc" />
-                </div>
-                </div>
-                <div class="msg-subject">
-                    <input type="text" placeholder="Subject" />
-                </div>
-                <div class="msg-body">
-                    <textarea placeholder="Say something"></textarea>
-                </div>
-                <div class="msg-footer">
-                    <div class="left">
-                        <a href="#" class="send-btn">SEND</a>
-                        <a href="#"><i class="fa fa-paperclip"></i></a>
-                        <a href="#" class="font"></a>
+<div class="cell {{if this.isMinimized 'minimized'}}">
+    <div class="wrap" style="z-index: {{@compose.index}};">
+        <div class="msg-compose {{if this.isMinimized 'minimized'}}">
+            <div class="msg-compose-wrapper">
+                <div class="msg-title-bar" {{on "click" (fn @bringToFront @compose.index)}}>
+                    <div class="icon left"><i class="fa fa-envelope"></i></div>
+                    <div class="compose-actions right">
+                        <a href="#" class="minimize" {{on "click" this.onMinimize}}><i class="fa fa-minus"></i></a>
+                        <a href="#" class="close" {{on "click" (fn this.onClose @compose.id)}}><i class="fa fa-times"></i></a>
                     </div>
-                    <div class="right"><a href="#"><i class="fa fa-trash"></i></a></div>
+                </div>
+                <div class="msg-content-wrapper">
+                    <div class="msg-recipients">
+                    <div class="to-list">
+                        <input type="text" placeholder="To" value={{@compose.to}}/>
+                        <span class="arrow" {{on "click" this.toggleCcBcc}}></span>
+                    </div>
+                    <div class="cc-list {{if showCcBcc 'expanded'}}">
+                        <input type="text" placeholder="cc" />
+                    </div>
+                    <div class="bcc-list {{if showCcBcc 'expanded'}}">
+                        <input type="text" placeholder="Bcc" />
+                    </div>
+                    </div>
+                    <div class="msg-subject">
+                        <input type="text" placeholder="Subject" />
+                    </div>
+                    <div class="msg-body">
+                        <textarea placeholder="Say something"></textarea>
+                    </div>
+                    <div class="msg-footer">
+                        <div class="left">
+                            <a href="#" class="send-btn">SEND</a>
+                            <a href="#"><i class="fa fa-paperclip"></i></a>
+                            <a href="#" class="font"></a>
+                        </div>
+                        <div class="right"><a href="#"><i class="fa fa-trash"></i></a></div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,25 +1,25 @@
 <div class="item">
-    {{#if isDocument}}
+    {{#if this.isDocument}}
         <div class="document">
-            <p class="doc-name">{{file.fileName}}</p>
+            <p class="doc-name">{{@file.fileName}}</p>
             <div class="doc-type">
-                {{file-extension file.ext}}
-                <span>{{file.fileType}}</span>
+                {{file-extension @file.ext}}
+                <span>{{@file.fileType}}</span>
             </div>
         </div>
-    {{else if isImage}}
+    {{else if this.isImage}}
         <div class="picture">
-            <img class="pics" src={{file.clipSrc}} alt={{file.fileName}}/>
+            <img class="pics" src={{@file.clipSrc}} alt={{@file.fileName}}/>
         </div>
-    {{else if isVideo}}
+    {{else if this.isVideo}}
         <div class="video">
             <div class="video-clip">
                 <i class="fa fa-play-circle-o"></i>
-                <img src={{file.clipSrc}}/>
+                <img src={{@file.clipSrc}}/>
             </div>
             <div class="video-info">
-                <p class="video-name">{{file.fileName}}</p>
-                <span>{{file.description}}</span>
+                <p class="video-name">{{@file.fileName}}</p>
+                <span>{{@file.description}}</span>
             </div>
         </div>
     {{/if}}

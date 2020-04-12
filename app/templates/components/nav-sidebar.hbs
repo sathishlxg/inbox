@@ -1,48 +1,48 @@
-<nav class="sidebar {{if isSidebarOpen 'show' 'hide'}}">
+<nav class="sidebar {{if @isSidebarOpen 'show' 'hide'}}">
     <ul>
-        <li class="{{nav-item-class 'inbox' currentPath}}">
+        <li class="{{nav-item-class 'inbox' @currentPath}}">
             {{#link-to "index" class="inbox"}}
                 <i class="fa fa-inbox fa-lg color-blue"></i>
                 <span>Inbox</span>
             {{/link-to}}
         </li>
-        <li class="{{nav-item-class 'snoozed' currentPath}}">
+        <li class="{{nav-item-class 'snoozed' @currentPath}}">
             {{#link-to "snoozed" class="snooze"}}
                 <i class="fa fa-clock-o fa-lg color-orange"></i>
                 <span>Snoozed</span>
             {{/link-to}}
         </li>
-        <li class="{{nav-item-class 'done' currentPath}} separator">
+        <li class="{{nav-item-class 'done' @currentPath}} separator">
             {{#link-to "done" class="done"}}
                 <i class="fa fa-check fa-lg color-green"></i>
                 <span>Done</span>
             {{/link-to}}
         </li>
-        <li class="{{nav-item-class 'draft' currentPath}}">
+        <li class="{{nav-item-class 'draft' @currentPath}}">
             {{#link-to "draft" class="draft"}}
                 <i class="fa fa-envelope-o fa-lg color-grey"></i>
                 <span>Draft</span>
             {{/link-to}}
         </li>
-        <li class="{{nav-item-class 'sent' currentPath}}">
+        <li class="{{nav-item-class 'sent' @currentPath}}">
             {{#link-to "sent" class="sent"}}
                 <i class="fa fa-send-o fa-lg color-grey"></i>
                 <span>Sent</span>
             {{/link-to}}
         </li>
-        <li class="{{nav-item-class 'purchases' currentPath}}">
+        <li class="{{nav-item-class 'purchases' @currentPath}}">
             {{#link-to "purchases" class="purchases"}}
                 <i class="fa fa-shopping-cart fa-lg color-grey"></i>
                 <span>Purchases</span>
             {{/link-to}}
         </li>
-        <li class="{{nav-item-class 'trash' currentPath}}">
+        <li class="{{nav-item-class 'trash' @currentPath}}">
             {{#link-to "trash" class="trash"}}
                 <i class="fa fa-trash fa-lg color-grey"></i>
                 <span>Trash</span>
             {{/link-to}}
         </li>
-        <li class="{{nav-item-class 'spam' currentPath}} separator">
+        <li class="{{nav-item-class 'spam' @currentPath}} separator">
             {{#link-to "spam" class="spam"}}
                 <i class="fa fa-warning fa-lg color-grey"></i>
                 <span>Spam</span>
