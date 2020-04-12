@@ -29,13 +29,12 @@ export default class extends Component {
     get showPin() {
         const {mail: {isPinned = false}} = this.args;
 
-        return !this.isSelected && !this.isMenuActive && isPinned;
+        return !this.args.isSelected && !this.isMenuActive && isPinned;
     }
 
     @action
     onSelectionChange(e) {
         e.preventDefault();
-        e.stopPropagation();
 
         this._isItemSelected = !this._isItemSelected;
         const {mail: {id}, onSelectionChange} = this.args;
@@ -61,6 +60,10 @@ export default class extends Component {
 
     @action
     onOpenMessage() {
+        if (this.args.isSelected) {
+            return;
+        }
+
         this.showDetails = !this.showDetails;
     }
 }

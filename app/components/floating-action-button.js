@@ -7,10 +7,10 @@ export default class FloatingActionButton extends Component {
         {
             name: "Sathish kumar",
             email: "sathislxg@yahoo.com",
-            imgSrc: "https://lh4.googleusercontent.com/-GXmmnYTuWkg/AAAAAAAAAAI/AAAAAAAAAAA/oK6DEDS7grM/w56-h56/photo.jpg",
+            imgSrc: "/assets/images/user_1.jpg",
         },
         {
-            name: "Maximus",
+            name: "Max",
             email: "max@gmail.com",
             imgSrc: "https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/avatars/avatar_tile_m_56.png",
         },

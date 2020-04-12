@@ -1,23 +1,21 @@
 import Service from '@ember/service';
+import { tracked } from '@glimmer/tracking';
+import { A } from '@ember/array';
 
 export default class AppStateService extends Service {
-    queuedItems = [];
-    showPinnedItems = false;
+    @tracked queuedItems = A([]);
+    @tracked showPinnedItems = false;
 
     add(item) {
-        this.queuedItems.push(item);
+        this.queuedItems.pushObject(item);
     }
 
     remove(item) {
-        const index = this.queuedItems.findIndex(i => i === item);
-
-        if (index) {
-            this.queuedItems.splice(index, 1);
-        }
+        this.queuedItems.removeObject(item);
     }
 
     empty() {
-        this.queuedItems = [];
+        this.queuedItems.clear();
     }
 
     toggleShowPinnedItems() {

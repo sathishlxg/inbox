@@ -18,28 +18,26 @@ export default class extends Component {
     }
 
     _handleClickOutside(e) {
-        if (!this.dropdown || !this.dropdown.contains(e.target)) {
+        if (this.popOver && !this.popOver.contains(e.target)) {
             this.isOpen = false;
+
+            if (this.args.onClose) {
+                this.args.onClose(false);
+            }
         }
     }
 
     @action
     _setRef(ref) {
-        this.dropdown = ref;
+        this.popOver = ref;
     }
 
     @action
     openMenu() {
-        this.isOpen = !this.isOpen;
-    }
+        this.isOpen = true;
 
-    @action
-    addAccount() {
-        alert("add account");
-    }
-
-    @action
-    signOut() {
-        alert("signOut");
+        if (this.args.onOpen) {
+            this.args.onOpen(true);
+        }
     }
 }

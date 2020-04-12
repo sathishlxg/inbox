@@ -1,6 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable ember/avoid-leaking-state-in-ember-objects */
-/* eslint-disable ember/no-function-prototype-extensions */
 import Controller from "@ember/controller";
 import {action} from "@ember/object";
 import { tracked } from '@glimmer/tracking';
@@ -8,10 +5,9 @@ import { inject as service } from '@ember/service';
 
 export default class ApplicationController extends Controller {
     @service router;
-    @tracked queuedItems = [];
+    @service appState;
     @tracked composeSessions = [];
     @tracked isSidebarOpen = true;
-    @tracked showPinnedItems = false;
 
     get currentRoutePath() {
         const path = this.router.currentRouteName || "inbox";
@@ -20,11 +16,11 @@ export default class ApplicationController extends Controller {
     }
 
     get selectedCount() {
-        return this.queuedItems.length;
+        return this.appState.queuedItems.length;
     }
 
     get hasItems() {
-        return this.queuedItems.length > 0;
+        return this.appState.queuedItems.length > 0;
     }
 
     @action
@@ -45,7 +41,7 @@ export default class ApplicationController extends Controller {
 
     @action
     emptyQueue() {
-        this.queuedItems = [];
+        this.appState.empty();
     }
 
     @action
@@ -55,7 +51,7 @@ export default class ApplicationController extends Controller {
 
     @action
     togglePinnedItems() {
-        this.showPinnedItems = !this.showPinnedItems;
+        this.appState.toggleShowPinnedItems();
     }
 
     @action

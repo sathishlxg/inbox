@@ -1,11 +1,11 @@
 <div {{ref this._setRef}}>
-    <a class="link-image" href="#" {{action "openMenu"}}>
-        <img src="https://lh4.googleusercontent.com/-GXmmnYTuWkg/AAAAAAAAAAI/AAAAAAAAAAA/oK6DEDS7grM/w56-h56/photo.jpg" />
+    <a class="link-image" href="#" {{on "click" this.openMenu}}>
+        <img src="/assets/images/user_1.jpg" />
     </a>
-    {{#if isOpen}}
+    {{#if this.isOpen}}
         <div class="dropdown">
             <div class="dropdown-item default">
-                <img src="http://lh4.googleusercontent.com/-GXmmnYTuWkg/AAAAAAAAAAI/AAAAAAAAAAA/BWJYqc4xTsU/s96-c/photo.jpg" alt="" />
+                <img src="/assets/images/user_1_big.jpg" alt="" />
                 <div class="profile-content">
                     <div><b>Sathish Kumar</b></div>
                     <div>sathislxg@gmail.com</div>
@@ -15,7 +15,7 @@
             </div>
             <div class="dropdown-item">
                 <a class="profile-item" href="">
-                    <img src="https://lh3.googleusercontent.com/-gR6Xo5_uP8s/AAAAAAAAAAI/AAAAAAAAAAA/5CTZklN08qY/s48-c/photo.jpg" />
+                    <img src="/assets/images/user_2.jpg" />
                     <div class="profile-content">
                         <div>Sathish Kumar Thangaraj</div>
                         <div class="email">Sathishlxg@gmail.com (default)</div>
@@ -24,7 +24,7 @@
             </div>
             <div class="dropdown-item">
                 <a class="profile-item" href="">
-                    <img src="https://lh4.googleusercontent.com/-GXmmnYTuWkg/AAAAAAAAAAI/AAAAAAAAAAA/oK6DEDS7grM/w56-h56/photo.jpg" />
+                    <img src="/assets/images/user_1.jpg" />
                     <div class="profile-content">
                         <div class="default-name">Sathish Kumar</div>
                         <div class="email">Sathislxg@gmail.com</div>
@@ -32,8 +32,8 @@
                 </a>
             </div>
             <div class="dropdown-item">
-                <a class="default-btn pull-left" href="#" {{action "addAccount"}}>Add account</a>
-                <a class="default-btn pull-right" href="#" {{action "signOut"}}>Sign out</a>
+                <a class="default-btn pull-left" href="#" {{on "click" this.addAccount}}>Add account</a>
+                <a class="default-btn pull-right" href="#" {{on "click" this.signOut}}>Sign out</a>
             </div>
         </div>
     {{/if}}

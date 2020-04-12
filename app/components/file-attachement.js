@@ -1,4 +1,3 @@
-/* eslint-disable ember/no-function-prototype-extensions */
 import Component from "@glimmer/component";
 import {action} from "@ember/object";
 import { tracked } from '@glimmer/tracking';
