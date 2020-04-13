@@ -1,0 +1,22 @@
+{{#unless @isReplying}}
+    <div class="quick-reply" {{on "click" @onReply}}>
+        <Avatar @src="/assets/images/avatar_tile_s_56.png" />
+        <span>Reply</span>
+        <div class="action">
+            <i class="fa fa-mail-reply"></i>
+        </div>
+    </div>
+{{else}}
+    <Avatar @src="/assets/images/avatar_tile_s_56.png" />
+    <div class="replybox">
+        <div class="draft">
+            <span>Draft </span>
+            <span>to, {{@senderName}} <i class="fa fa-angle-down"></i></span>
+        </div>
+        <textarea></textarea>
+        <div class="left">
+            <a href="#" class="send-btn">SEND</a>
+            <a href="#"><i class="fa fa-paperclip"></i></a>
+        </div>
+    </div>
+{{/unless}}

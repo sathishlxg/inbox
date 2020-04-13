@@ -7,6 +7,7 @@
 @import 'actions-modal';
 @import 'compose-editor';
 @import 'message-body';
+@import 'message-body-animation';
 
 * {
     padding: 0;
@@ -512,18 +513,16 @@ body {
 }
 
 .wrapper .mail-wrapper {
-    margin: 2% 8%;
-    transition: all 0.1s ease-in-out;
+    margin: 0 10%;
     background: white;
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.16), 0 6px 12px rgba(0, 0, 0, 0.32);
 }
 
-.wrapper .mail-wrapper .mail-top {
+.wrapper .mail-wrapper .mail-summary {
     cursor: pointer;
     padding: 20px;
 }
 
-.wrapper .mail-wrapper .mail-body .someClass {
+.wrapper .mail-wrapper .mail-body .mail-details {
     margin: 0 20px 0 16px;
     width: auto;
     overflow: hidden;
@@ -531,15 +530,15 @@ body {
     word-wrap: nowrap;
 }
 
-.wrapper .mail-wrapper .mail-body .someClass .sender {
+.wrapper .mail-wrapper .mail-body .mail-details .sender {
     margin-top: 20px;
 }
 
-.wrapper .mail-wrapper .mail-body .someClass .sender> :first-child {
+.wrapper .mail-wrapper .mail-body .mail-details .sender> :first-child {
     font-weight: bold;
 }
 
-.wrapper .mail-wrapper .mail-body .someClass .message {
+.wrapper .mail-wrapper .mail-body .mail-details .message {
     padding: 30px 40px 20px 0;
 }
 
@@ -800,9 +799,6 @@ body {
         margin: 2% -1%;
     }
 }
-
-
-
 
 
 .info-page-wrapper {
