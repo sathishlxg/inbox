@@ -1,27 +1,24 @@
-@use 'common';
-
 $closed-height: 47px;
-$scroll-height: 100vh;
 $animation_speed: 300ms;
 
  // Mixin for the box shadow.  Ripped verbatim from Google Inbox :)
- @mixin shadow() {
-     bottom: 0;
-     box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px rgba(0, 0, 0, 0.12),
-         0 2px 4px rgba(0, 0, 0, 0.24);
-     content: "";
-     display: block;
-     left: 0;
-     pointer-events: none;
-     position: absolute;
-     right: 0;
-     top: 0;
- }
+@mixin shadow() {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    display: block;
+    position: absolute;
+    pointer-events: none;
+    box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px rgba(0, 0, 0, 0.12),
+        0 2px 4px rgba(0, 0, 0, 0.24);
+}
 
- .mail-content-details {
-    line-height: 1.5;
+.mail-content-details {
     width: 100%;
- }
+    line-height: 1.5;
+}
 
 .mail-wrapper {
     margin: 0 10%;
@@ -30,13 +27,17 @@ $animation_speed: 300ms;
 }
 
  // Message details start out hidden and are brought in via Javascript
- .mail-content-details {
-    position: absolute;
-    left: -5000px;
+.mail-content-details {
     width: 100%;
- }
+    left: -5000px;
+    position: absolute;
 
- .grower {
+    .mail-body, .mail-footer {
+        opacity: 0.0001;
+    }
+}
+
+.grower {
     top: 0;
     height: 0;
     width: 100%;
@@ -44,7 +45,7 @@ $animation_speed: 300ms;
     background: #fff;
     transform: scale(1, 1);
     transform-origin: center top;
- }
+}
 
 .mail-wrapper.mail--opening,
 .mail-wrapper.mail--open {
@@ -55,42 +56,69 @@ $animation_speed: 300ms;
     box-shadow: 0 0 2px rgba(0,0,0,.16),0 2px 4px rgba(0,0,0,.32);
 }
 
- // Opening animation class
- // Only applied when animating, it's removed after the animation
- .mail--opening {
-     .grower {
+.mail--opening {
+    .grower {
         height: $closed-height;
         animation: scale-out $animation_speed forwards;
-     }
+    }
 
-     // Unhide the details, but keep them off screen
-     .mail-content-details {
-        display: block;
-     }
-
-     // Hide the pseudo element when animating (the box-shadow) so it looks like
-     // the summary itself is growing.  We'll then fade out the summary.
-     > .message__summary {
+    > .mail__summary {
         animation: fade-out $animation_speed forwards;
-     }
- }
+    }
+}
 
- // Opened class.  Applied after the open animation.
 .mail--open {
     .grower {
         display: none;
     }
 
-    // We now bring in the details
     .mail-content-details {
+        opacity: 1;
         display: block;
-        opacity: 0.0001;
         position: static;
+    }
+
+    .mail-body {
         animation-name: fade-in;
         animation-fill-mode: forwards;
         animation-duration: $animation_speed;
     }
+
+    .mail-footer {
+        animation-name: fade-in;
+        animation-fill-mode: forwards;
+        animation-duration: 100ms;
+    }
 }
+
+.mail--closing {
+    .mail-content-details {
+        display: none;
+    }
+
+    // Fade in both the pseudo element and summary element
+    .mail__summary {
+        &:before {
+            opacity: 0;
+            display: block;
+            animation-name: fade-in;
+            animation-fill-mode: forwards;
+            animation-duration: $animation_speed;
+        }
+
+        opacity: 0;
+        display: block;
+        animation-name: fade-in;
+        animation-fill-mode: forwards;
+        animation-duration: $animation_speed;
+    }
+
+    .pusher.closing {
+        animation-fill-mode: forwards;
+        animation-duration: $animation_speed;
+    }
+}
+
 
 @keyframes fade-out {
     0%,
@@ -113,13 +141,3 @@ $animation_speed: 300ms;
     }
 }
 
-// @keyframes scale-out {
-//     0% {
-//         transform: scale(1, 1);
-//     }
-
-//     80%,
-//     100% {
-//         transform: scale(1, (182 + 47) / 47);
-//     }
-// }

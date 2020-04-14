@@ -158,7 +158,15 @@ module.exports = function(app) {
                     content:
                         "Please take some time to review and agree to the new unified Terms of Service and Privacy Policy by clicking on the button below.",
                     isPinned: false,
-                    attachments: []
+                    attachments: [
+                        {
+                            id: "6.1",
+                            fileName: "Terms & condition",
+                            fileType: "document",
+                            ext: ".pdf",
+                            url: "https://google.com"
+                        }
+                    ]
                 },
                 {
                     id: 7,

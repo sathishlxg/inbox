@@ -1,10 +1,10 @@
 <div class="mail-wrapper" {{ref this._setRef}}>
     <div class="grower" />
-    <div class="mail-summary shadow" {{on "click" @onCloseMessage}}>
+    <div class="mail-summary shadow" {{on "click" this.handleMessageClose}}>
         <div class="mail-subject">{{@message.subject}}</div>
     </div>
     <div class="mail-content-details">
-        <div class="mail-body ">
+        <div class="mail-body">
             <Avatar @src={{@message.avatar}} />
             <div class="mail-details">
                 <div class="sender">

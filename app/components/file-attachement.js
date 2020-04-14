@@ -9,7 +9,7 @@ export default class FileAttachments extends Component {
     @tracked isOverflowing = false;
 
     get hasPictures() {
-        return this.args.attachments.any(({ext}) => ext === ".jpeg" || ext === ".png" );
+        return this.args.attachments.any(({ext}) => ext === ".jpeg" || ext === ".png");
     }
 
     get isLeftArrowEnabled() {
