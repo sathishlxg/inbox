@@ -5,6 +5,7 @@ var message = DS.Model.extend({
     senderName: DS.attr("string"),
     subject: DS.attr("string"),
     content: DS.attr("string"),
+    snippet: DS.attr("string"),
     hasPictures: DS.attr("boolean"),
     isPinned: DS.attr("boolean"),
     hasAttachements: DS.attr("boolean"),

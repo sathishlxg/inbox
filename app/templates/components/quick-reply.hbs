@@ -7,16 +7,18 @@
         </div>
     </div>
 {{else}}
-    <Avatar @src="/assets/images/avatar_tile_s_56.png" />
-    <div class="replybox">
-        <div class="draft">
-            <span>Draft </span>
-            <span>to, {{@senderName}} <i class="fa fa-angle-down"></i></span>
-        </div>
-        <textarea></textarea>
-        <div class="left">
-            <a href="#" class="send-btn">SEND</a>
-            <a href="#"><i class="fa fa-paperclip"></i></a>
+    <div class="quick-reply-draft">
+        <Avatar @src="/assets/images/avatar_tile_s_56.png" />
+        <div class="replybox">
+            <div class="draft">
+                <span>Draft </span>
+                <span>to, {{@senderName}} <i class="fa fa-angle-down"></i></span>
+            </div>
+            <textarea></textarea>
+            <div class="left">
+                <a href="#" class="send-btn">SEND</a>
+                <a href="#"><i class="fa fa-paperclip"></i></a>
+            </div>
         </div>
     </div>
 {{/unless}}

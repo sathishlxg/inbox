@@ -89,6 +89,60 @@ $animation_speed: 300ms;
         animation-fill-mode: forwards;
         animation-duration: 100ms;
     }
+
+    &.fixed {
+        .grower {
+            height: 56px;
+            display: block;
+            position: relative;
+        }
+
+        .mail-summary {
+            top: 56px;
+            z-index: 1;
+            position: fixed;
+        }
+    }
+
+    &.absolute {
+        .grower {
+            height: 56px;
+            display: block;
+            position: relative;
+        }
+
+        .mail-summary {
+            z-index: 1;
+            bottom: 59px;
+            position: absolute;
+        }
+    }
+
+    &.fixed-bottom {
+        .pusher {
+            display: block;
+            position: relative;
+        }
+
+        .mail-footer {
+            bottom: 0;
+            z-index: 100;
+            position: fixed;
+        }
+    }
+
+    &.absolute-bottom {
+        .pusher {
+            display: block;
+            position: relative;
+        }
+
+        .mail-footer {
+            top: 59px;
+            z-index: 10;
+            position: absolute;
+        }
+    }
 }
 
 .mail--closing {

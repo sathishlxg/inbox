@@ -11,7 +11,7 @@
                     <sapn>{{@message.senderName}}</sapn>
                     <span> to me </span>
                 </div>
-                <div class="message">{{@message.content}}</div>
+                <div class="message">{{{@message.content}}}</div>
             </div>
         </div>
         <FileAttachement @attachments={{@message.attachments}} />

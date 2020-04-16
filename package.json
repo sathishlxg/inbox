@@ -59,6 +59,7 @@
     "edition": "octane"
   },
   "dependencies": {
-    "ember-cli": "^3.17.0"
+    "ember-cli": "^3.17.0",
+    "lodash": "^4.17.15"
   }
 }

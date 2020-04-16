@@ -1,6 +1,7 @@
 import Component from "@glimmer/component";
 import {action} from "@ember/object";
 import { tracked } from "@glimmer/tracking";
+import throttle from "lodash/throttle";
 
 export default class extends Component {
     @tracked isReplying = false;
@@ -10,7 +11,10 @@ export default class extends Component {
 
         this._handleClickOutside = this._handleClickOutside.bind(this);
 
+        this._handleScrollThrottled = throttle(this._handleScroll.bind(this), 50);
+
         window.addEventListener('click', this._handleClickOutside);
+        window.addEventListener('scroll', this._handleScrollThrottled);
     }
 
     willDestroy() {
@@ -21,6 +25,78 @@ export default class extends Component {
         }
 
         window.removeEventListener('click', this._handleClickOutside);
+        window.removeEventListener('scroll', this._handleScrollThrottled);
+    }
+
+    _fixTopHeader() {
+        const {messageBody: message} = this;
+        const grower = message.querySelector('.grower');
+        const footer = message.querySelector('.mail-footer');
+        const appBar = document.querySelector('.menu-wrapper');
+        const summary = message.querySelector('.mail-summary');
+
+        const {width, top, bottom} = message.getBoundingClientRect();
+        const height = (this.isReplying ? footer : summary).offsetHeight;
+        const topPosition = appBar.offsetHeight + summary.offsetHeight;
+
+        const shouldBeAbsolute = bottom - height < topPosition;
+        const shouldBeSticky = top < summary.offsetHeight && bottom - height > topPosition;
+
+        summary.style.width = `${width}px`;
+        grower.style.height = `${summary.offsetHeight}px`;
+
+        if (shouldBeSticky) {
+            summary.style.bottom = null;
+            message.classList.remove('absolute');
+            message.classList.add('fixed');
+        } else if (shouldBeAbsolute) {
+            message.classList.remove('fixed');
+            message.classList.add('absolute');
+
+            if (this.isReplying)
+                summary.style.bottom = footer.offsetHeight + 'px';
+        } else {
+            grower.style.height = null;
+            summary.style.width = null;
+            message.classList.remove('fixed');
+            message.classList.remove('absolute');
+        }
+    }
+
+    _fixBottomFooter() {
+        const {messageBody: message} = this;
+        const pusher = message.querySelector('.pusher');
+        const footer = message.querySelector('.mail-footer');
+        const summary = message.querySelector('.mail-summary');
+
+        const {width, top, bottom} = message.getBoundingClientRect();
+        const height = (this.isReplying ? footer : summary).offsetHeight;
+
+        const shouldBeAbsolute = top + summary.offsetHeight + footer.offsetHeight > window.innerHeight;
+        const shouldBeSticky = bottom > window.innerHeight;
+
+        footer.style.width = `${width}px`;
+        pusher.style.height = `${height}px`;
+
+        if (shouldBeAbsolute) {
+            message.classList.remove('fixed-bottom');
+            message.classList.add('absolute-bottom');
+        } else if (shouldBeSticky) {
+            message.classList.remove('absolute-bottom');
+            message.classList.add('fixed-bottom');
+        } else {
+            pusher.style.height = null;
+            footer.style.width = null;
+            message.classList.remove('fixed-bottom');
+            message.classList.remove('absolute-bottom');
+        }
+    }
+
+    _handleScroll() {
+        if (this.messageBody) {
+            this._fixTopHeader();
+            this._fixBottomFooter();
+        }
     }
 
     _handleClickOutside(e) {
@@ -50,6 +126,7 @@ export default class extends Component {
             message.classList.remove("mail--opening");
             message.classList.add("mail--open");
             pusher.classList.remove("opening");
+            this._handleScroll();
         });
     }
 

@@ -17,9 +17,9 @@ export default class extends Component {
     }
 
     get trimmedContent() {
-        const {mail: {content = ""}} = this.args;
+        const {mail: {snippet = ""}} = this.args;
 
-        return content.substring(0, 75);
+        return snippet.substring(0, 75);
     }
 
     get isMenuActive() {
