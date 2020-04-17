@@ -11,9 +11,12 @@ export default class extends Component {
 
         this._handleClickOutside = this._handleClickOutside.bind(this);
 
-        this._handleScrollThrottled = throttle(this._handleScroll.bind(this), 50);
+        this._handleScrollThrottled = throttle(() => {
+            window.requestAnimationFrame(this._handleScroll.bind(this))
+        }, 100);
 
         window.addEventListener('click', this._handleClickOutside);
+        window.addEventListener('resize', this._handleScrollThrottled);
         window.addEventListener('scroll', this._handleScrollThrottled);
     }
 
@@ -25,6 +28,7 @@ export default class extends Component {
         }
 
         window.removeEventListener('click', this._handleClickOutside);
+        window.removeEventListener('resize', this._handleScrollThrottled);
         window.removeEventListener('scroll', this._handleScrollThrottled);
     }
 
