@@ -44,7 +44,7 @@
     "ember-resolver": "^7.0.0",
     "ember-source": "~3.17.0",
     "ember-template-lint": "^2.4.0",
-    "eslint": "^6.8.0",
+    "eslint": "^9.39.1",
     "eslint-plugin-ember": "^7.10.1",
     "eslint-plugin-node": "^11.0.0",
     "loader.js": "^4.7.0",
@@ -59,7 +59,7 @@
     "edition": "octane"
   },
   "dependencies": {
-    "ember-cli": "^3.17.0",
+    "ember-cli": "^6.8.0",
     "lodash": "^4.17.15"
   }
 }
